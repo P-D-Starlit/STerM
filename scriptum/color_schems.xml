@@ -1,0 +1,495 @@
+<?xml version="1.0" ?>
+
+<CONFIGURATION>
+
+<!--    										-->
+<!-- Color Schem Settings File					-->
+<!-- Version 1.0, April 2010, HDL Works B.V. 	-->
+<!-- 											-->
+
+<sections>
+    <section name = "Default" >
+        <key name = "standard"		        type = "boolean" value = "true" />
+
+        <key name = "TextBackground"		type = "color" value = "White" />
+        <key name = "TextForeground" 		type = "color" value = "Black" />
+        <key name = "TextTypeface" 			type = "int"   value = "0" />
+
+        <key name = "MarginBackground" 		type = "color" value = "Gray80" />
+        <key name = "MarginForeground" 		type = "color" value = "Black" />
+        <key name = "MarginTypeface" 		type = "int"   value = "0" />
+
+        <key name = "SelectedBackground" 	type = "color" value = "Blue" />
+        <key name = "SelectedForeground" 	type = "color" value = "Yellow" />
+        <key name = "SelectedTypeface" 		type = "int"   value = "0" />
+
+        <key name = "SecSelectedBackground" type = "color" value = "Red" />
+        <key name = "SecSelectedForeground" type = "color" value = "Yellow" />
+        <key name = "SecSelectedTypeface" 	type = "int"   value = "0" />
+
+        <key name = "CommentBackground" 	type = "color" value = "None" />
+        <key name = "CommentForeground" 	type = "color" value = "Lime Green" />
+        <key name = "CommentTypeface" 		type = "int"   value = "1" />
+
+        <key name = "StringsBackground" 	type = "color" value = "None" />
+        <key name = "StringsForeground" 	type = "color" value = "Medium Blue" />
+        <key name = "StringsTypeface" 		type = "int"   value = "2" />
+
+        <key name = "ExpanderBackground" 	type = "color" value = "None" />
+        <key name = "ExpanderForeground" 	type = "color" value = "Navy" />
+        <key name = "ExpanderTypeface" 		type = "int"   value = "2" />
+
+        <key name = "Group1Background" 		type = "color" value = "None" />
+        <key name = "Group1Foreground" 		type = "color" value = "Red" />
+        <key name = "Group1Typeface" 		type = "int"   value = "2" />
+
+        <key name = "Group2Background" 		type = "color" value = "None" />
+        <key name = "Group2Foreground" 		type = "color" value = "Cornflower Blue" />
+        <key name = "Group2Typeface" 		type = "int"   value = "2" />
+
+        <key name = "Group3Background" 		type = "color" value = "None" />
+        <key name = "Group3Foreground" 		type = "color" value = "Violet Red" />
+        <key name = "Group3Typeface" 		type = "int"   value = "0" />
+
+        <key name = "Group4Background" 		type = "color" value = "None" />
+        <key name = "Group4Foreground" 		type = "color" value = "Orange Red" />
+        <key name = "Group4Typeface" 		type = "int"   value = "0" />
+
+        <key name = "Group5Background" 		type = "color" value = "None" />
+        <key name = "Group5Foreground" 		type = "color" value = "Orchid" />
+        <key name = "Group5Typeface" 		type = "int"   value = "0" />
+    </section>
+
+    <section name = "Starlight" >
+        <key name = "standard"		        type = "boolean" value = "true" />
+
+        <key name = "TextBackground"		type = "color" value = "White" />
+        <key name = "TextForeground" 		type = "color" value = "Black" />
+        <key name = "TextTypeface" 			type = "int"   value = "0" />
+
+        <key name = "MarginBackground" 		type = "color" value = "Gray80" />
+        <key name = "MarginForeground" 		type = "color" value = "Black" />
+        <key name = "MarginTypeface" 		type = "int"   value = "0" />
+
+        <key name = "SelectedBackground" 	type = "color" value = "Blue" />
+        <key name = "SelectedForeground" 	type = "color" value = "Yellow" />
+        <key name = "SelectedTypeface" 		type = "int"   value = "0" />
+
+        <key name = "SecSelectedBackground" type = "color" value = "Red" />
+        <key name = "SecSelectedForeground" type = "color" value = "Yellow" />
+        <key name = "SecSelectedTypeface" 	type = "int"   value = "0" />
+
+        <key name = "CommentBackground" 	type = "color" value = "None" />
+        <key name = "CommentForeground" 	type = "color" value = "Lime Green" />
+        <key name = "CommentTypeface" 		type = "int"   value = "1" />
+
+        <key name = "StringsBackground" 	type = "color" value = "None" />
+        <key name = "StringsForeground" 	type = "color" value = "Medium Blue" />
+        <key name = "StringsTypeface" 		type = "int"   value = "2" />
+
+        <key name = "ExpanderBackground" 	type = "color" value = "None" />
+        <key name = "ExpanderForeground" 	type = "color" value = "Navy" />
+        <key name = "ExpanderTypeface" 		type = "int"   value = "2" />
+
+        <key name = "Group1Background" 		type = "color" value = "None" />
+        <key name = "Group1Foreground" 		type = "color" value = "Red" />
+        <key name = "Group1Typeface" 		type = "int"   value = "2" />
+
+        <key name = "Group2Background" 		type = "color" value = "None" />
+        <key name = "Group2Foreground" 		type = "color" value = "Cornflower Blue" />
+        <key name = "Group2Typeface" 		type = "int"   value = "2" />
+
+        <key name = "Group3Background" 		type = "color" value = "None" />
+        <key name = "Group3Foreground" 		type = "color" value = "Violet Red" />
+        <key name = "Group3Typeface" 		type = "int"   value = "2" />
+
+        <key name = "Group4Background" 		type = "color" value = "None" />
+        <key name = "Group4Foreground" 		type = "color" value = "Orange Red" />
+        <key name = "Group4Typeface" 		type = "int"   value = "2" />
+
+        <key name = "Group5Background" 		type = "color" value = "None" />
+        <key name = "Group5Foreground" 		type = "color" value = "Orchid" />
+        <key name = "Group5Typeface" 		type = "int"   value = "2" />
+
+	<key name = "Group6Background" 		type = "color" value = "None" />
+        <key name = "Group6Foreground" 		type = "color" value = "Orchid" />
+        <key name = "Group6Typeface" 		type = "int"   value = "2" />
+    </section>
+
+    <section name = "Blue" >
+
+        <key name = "standard"		        type = "boolean" value = "true" />
+
+        <key name = "TextBackground"		type = "color" value = "Light Blue" />
+        <key name = "TextForeground" 		type = "color" value = "Black" />
+        <key name = "TextTypeface" 			type = "int"   value = "0" />
+
+        <key name = "MarginBackground" 		type = "color" value = "Sky Blue" />
+        <key name = "MarginForeground" 		type = "color" value = "Black" />
+        <key name = "MarginTypeface" 		type = "int"   value = "0" />
+
+        <key name = "SelectedBackground" 	type = "color" value = "Dark Olive Green" />
+        <key name = "SelectedForeground" 	type = "color" value = "Yellow" />
+        <key name = "SelectedTypeface" 		type = "int"   value = "0" />
+
+        <key name = "SecSelectedBackground" type = "color" value = "Dark Slate Blue" />
+        <key name = "SecSelectedForeground" type = "color" value = "Gold" />
+        <key name = "SecSelectedTypeface" 	type = "int"   value = "0" />
+
+        <key name = "CommentBackground" 	type = "color" value = "None" />
+        <key name = "CommentForeground" 	type = "color" value = "Dark Slate Gray" />
+        <key name = "CommentTypeface" 		type = "int"   value = "1" />
+
+        <key name = "StringsBackground" 	type = "color" value = "None" />
+        <key name = "StringsForeground" 	type = "color" value = "Blue Violet" />
+        <key name = "StringsTypeface" 		type = "int"   value = "2" />
+
+        <key name = "ExpanderBackground" 	type = "color" value = "None" />
+        <key name = "ExpanderForeground" 	type = "color" value = "Steel Blue" />
+        <key name = "ExpanderTypeface" 		type = "int"   value = "2" />
+
+        <key name = "Group1Background" 		type = "color" value = "None" />
+        <key name = "Group1Foreground" 		type = "color" value = "Brown" />
+        <key name = "Group1Typeface" 		type = "int"   value = "2" />
+
+        <key name = "Group2Background" 		type = "color" value = "None" />
+        <key name = "Group2Foreground" 		type = "color" value = "Midnight Blue" />
+        <key name = "Group2Typeface" 		type = "int"   value = "2" />
+
+        <key name = "Group3Background" 		type = "color" value = "None" />
+        <key name = "Group3Foreground" 		type = "color" value = "Medium Blue" />
+        <key name = "Group3Typeface" 		type = "int"   value = "2" />
+
+        <key name = "Group4Background" 		type = "color" value = "None" />
+        <key name = "Group4Foreground" 		type = "color" value = "Sienna" />
+        <key name = "Group4Typeface" 		type = "int"   value = "0" />
+
+        <key name = "Group5Background" 		type = "color" value = "None" />
+        <key name = "Group5Foreground" 		type = "color" value = "Brown" />
+        <key name = "Group5Typeface" 		type = "int"   value = "0" />
+    </section>
+
+    <section name = "Desert" >
+        <key name = "standard"		        type = "boolean" value = "true" />
+
+        <key name = "TextBackground"		type = "color" value = "Gray20" />
+        <key name = "TextForeground" 		type = "color" value = "White" />
+        <key name = "TextTypeface" 			type = "int"   value = "0" />
+
+        <key name = "MarginBackground" 		type = "color" value = "Gray30" />
+        <key name = "MarginForeground" 		type = "color" value = "Gray90" />
+        <key name = "MarginTypeface" 		type = "int"   value = "0" />
+
+        <key name = "SelectedBackground" 	type = "color" value = "Dark Olive Green" />
+        <key name = "SelectedForeground" 	type = "color" value = "Gold" />
+        <key name = "SelectedTypeface" 		type = "int"   value = "0" />
+
+        <key name = "SecSelectedBackground" type = "color" value = "Dark Slate Blue" />
+        <key name = "SecSelectedForeground" type = "color" value = "Gold" />
+        <key name = "SecSelectedTypeface" 	type = "int"   value = "0" />
+
+        <key name = "CommentBackground" 	type = "color" value = "None" />
+        <key name = "CommentForeground" 	type = "color" value = "Yellow" />
+        <key name = "CommentTypeface" 		type = "int"   value = "1" />
+
+        <key name = "StringsBackground" 	type = "color" value = "None" />
+        <key name = "StringsForeground" 	type = "color" value = "Salmon" />
+        <key name = "StringsTypeface" 		type = "int"   value = "2" />
+
+        <key name = "ExpanderBackground" 	type = "color" value = "None" />
+        <key name = "ExpanderForeground" 	type = "color" value = "Steel Blue" />
+        <key name = "ExpanderTypeface" 		type = "int"   value = "2" />
+
+        <key name = "Group1Background" 		type = "color" value = "None" />
+        <key name = "Group1Foreground" 		type = "color" value = "Khaki" />
+        <key name = "Group1Typeface" 		type = "int"   value = "2" />
+
+        <key name = "Group2Background" 		type = "color" value = "None" />
+        <key name = "Group2Foreground" 		type = "color" value = "Wheat" />
+        <key name = "Group2Typeface" 		type = "int"   value = "2" />
+
+        <key name = "Group3Background" 		type = "color" value = "None" />
+        <key name = "Group3Foreground" 		type = "color" value = "Coral" />
+        <key name = "Group3Typeface" 		type = "int"   value = "0" />
+
+        <key name = "Group4Background" 		type = "color" value = "None" />
+        <key name = "Group4Foreground" 		type = "color" value = "Sienna" />
+        <key name = "Group4Typeface" 		type = "int"   value = "0" />
+
+        <key name = "Group5Background" 		type = "color" value = "None" />
+        <key name = "Group5Foreground" 		type = "color" value = "Brown" />
+        <key name = "Group5Typeface" 		type = "int"   value = "0" />
+    </section>
+
+    <section name = "Evening" >
+
+        <key name = "standard"		        type = "boolean" value = "true" />
+
+        <key name = "TextBackground"		type = "color" value = "Gray20" />
+        <key name = "TextForeground" 		type = "color" value = "White" />
+        <key name = "TextTypeface" 			type = "int"   value = "0" />
+
+        <key name = "MarginBackground" 		type = "color" value = "Gray30" />
+        <key name = "MarginForeground" 		type = "color" value = "Gray90" />
+        <key name = "MarginTypeface" 		type = "int"   value = "0" />
+
+        <key name = "SelectedBackground" 	type = "color" value = "Gray60" />
+        <key name = "SelectedForeground" 	type = "color" value = "White" />
+        <key name = "SelectedTypeface" 		type = "int"   value = "0" />
+
+        <key name = "SecSelectedBackground" type = "color" value = "Yellow Green" />
+        <key name = "SecSelectedForeground" type = "color" value = "Gray10" />
+        <key name = "SecSelectedTypeface" 	type = "int"   value = "0" />
+
+        <key name = "CommentBackground" 	type = "color" value = "None" />
+        <key name = "CommentForeground" 	type = "color" value = "Salmon" />
+        <key name = "CommentTypeface" 		type = "int"   value = "1" />
+
+        <key name = "StringsBackground" 	type = "color" value = "None" />
+        <key name = "StringsForeground" 	type = "color" value = "Brown" />
+        <key name = "StringsTypeface" 		type = "int"   value = "2" />
+
+        <key name = "ExpanderBackground" 	type = "color" value = "None" />
+        <key name = "ExpanderForeground" 	type = "color" value = "Blue" />
+        <key name = "ExpanderTypeface" 		type = "int"   value = "2" />
+
+        <key name = "Group1Background" 		type = "color" value = "None" />
+        <key name = "Group1Foreground" 		type = "color" value = "Yellow" />
+        <key name = "Group1Typeface" 		type = "int"   value = "2" />
+
+        <key name = "Group2Background" 		type = "color" value = "None" />
+        <key name = "Group2Foreground" 		type = "color" value = "Green" />
+        <key name = "Group2Typeface" 		type = "int"   value = "2" />
+
+        <key name = "Group3Background" 		type = "color" value = "None" />
+        <key name = "Group3Foreground" 		type = "color" value = "Sky Blue" />
+        <key name = "Group3Typeface" 		type = "int"   value = "0" />
+
+        <key name = "Group4Background" 		type = "color" value = "None" />
+        <key name = "Group4Foreground" 		type = "color" value = "Aquamarine" />
+        <key name = "Group4Typeface" 		type = "int"   value = "0" />
+
+        <key name = "Group5Background" 		type = "color" value = "None" />
+        <key name = "Group5Foreground" 		type = "color" value = "Cyan" />
+        <key name = "Group5Typeface" 		type = "int"   value = "0" />
+    </section>
+
+    <section name = "Midnight-Black" >
+
+        <key name = "standard"		        type = "boolean" value = "true" />
+
+        <key name = "TextBackground"		type = "color" value = "Gray20" />
+        <key name = "TextForeground" 		type = "color" value = "Gray90" />
+        <key name = "TextTypeface" 			type = "int"   value = "0" />
+
+        <key name = "MarginBackground" 		type = "color" value = "Gray30" />
+        <key name = "MarginForeground" 		type = "color" value = "Gray90" />
+        <key name = "MarginTypeface" 		type = "int"   value = "0" />
+
+        <key name = "SelectedBackground" 	type = "color" value = "Medium Blue" />
+        <key name = "SelectedForeground" 	type = "color" value = "Yellow" />
+        <key name = "SelectedTypeface" 		type = "int"   value = "0" />
+
+        <key name = "SecSelectedBackground" type = "color" value = "Red" />
+        <key name = "SecSelectedForeground" type = "color" value = "Yellow" />
+        <key name = "SecSelectedTypeface" 	type = "int"   value = "0" />
+
+        <key name = "SecSelectedBackground" type = "color" value = "Red" />
+        <key name = "SecSelectedForeground" type = "color" value = "Yellow" />
+        <key name = "SecSelectedTypeface" 	type = "int"   value = "0" />
+
+        <key name = "CommentBackground" 	type = "color" value = "None" />
+        <key name = "CommentForeground" 	type = "color" value = "Pale Green" />
+        <key name = "CommentTypeface" 		type = "int"   value = "1" />
+
+        <key name = "StringsBackground" 	type = "color" value = "None" />
+        <key name = "StringsForeground" 	type = "color" value = "Turquoise" />
+        <key name = "StringsTypeface" 		type = "int"   value = "2" />
+
+        <key name = "ExpanderBackground" 	type = "color" value = "None" />
+        <key name = "ExpanderForeground" 	type = "color" value = "Yellow" />
+        <key name = "ExpanderTypeface" 		type = "int"   value = "2" />
+
+        <key name = "Group1Background" 		type = "color" value = "None" />
+        <key name = "Group1Foreground" 		type = "color" value = "Salmon" />
+        <key name = "Group1Typeface" 		type = "int"   value = "2" />
+
+        <key name = "Group2Background" 		type = "color" value = "None" />
+        <key name = "Group2Foreground" 		type = "color" value = "Cornflower Blue" />
+        <key name = "Group2Typeface" 		type = "int"   value = "2" />
+
+        <key name = "Group3Background" 		type = "color" value = "None" />
+        <key name = "Group3Foreground" 		type = "color" value = "Violet Red" />
+        <key name = "Group3Typeface" 		type = "int"   value = "0" />
+
+        <key name = "Group4Background" 		type = "color" value = "None" />
+        <key name = "Group4Foreground" 		type = "color" value = "Orange Red" />
+        <key name = "Group4Typeface" 		type = "int"   value = "0" />
+
+        <key name = "Group5Background" 		type = "color" value = "None" />
+        <key name = "Group5Foreground" 		type = "color" value = "Orchid" />
+        <key name = "Group5Typeface" 		type = "int"   value = "0" />
+    </section>
+
+    <section name = "Morning" >
+
+        <key name = "standard"		        type = "boolean" value = "true" />
+
+        <key name = "TextBackground"		type = "color" value = "Gray90" />
+        <key name = "TextForeground" 		type = "color" value = "Black" />
+        <key name = "TextTypeface" 			type = "int"   value = "0" />
+
+        <key name = "MarginBackground" 		type = "color" value = "Gray80" />
+        <key name = "MarginForeground" 		type = "color" value = "Gray10" />
+        <key name = "MarginTypeface" 		type = "int"   value = "0" />
+
+        <key name = "SelectedBackground" 	type = "color" value = "Gray70" />
+        <key name = "SelectedForeground" 	type = "color" value = "Black" />
+        <key name = "SelectedTypeface" 		type = "int"   value = "0" />
+
+        <key name = "SecSelectedBackground" type = "color" value = "Yellow" />
+        <key name = "SecSelectedForeground" type = "color" value = "Black" />
+        <key name = "SecSelectedTypeface" 	type = "int"   value = "0" />
+
+        <key name = "CommentBackground" 	type = "color" value = "None" />
+        <key name = "CommentForeground" 	type = "color" value = "Blue" />
+        <key name = "CommentTypeface" 		type = "int"   value = "1" />
+
+        <key name = "StringsBackground" 	type = "color" value = "None" />
+        <key name = "StringsForeground" 	type = "color" value = "Magenta" />
+        <key name = "StringsTypeface" 		type = "int"   value = "2" />
+
+        <key name = "ExpanderBackground" 	type = "color" value = "None" />
+        <key name = "ExpanderForeground" 	type = "color" value = "Blue" />
+        <key name = "ExpanderTypeface" 		type = "int"   value = "2" />
+
+        <key name = "Group1Background" 		type = "color" value = "None" />
+        <key name = "Group1Foreground" 		type = "color" value = "Brown" />
+        <key name = "Group1Typeface" 		type = "int"   value = "2" />
+
+        <key name = "Group2Background" 		type = "color" value = "None" />
+        <key name = "Group2Foreground" 		type = "color" value = "Black" />
+        <key name = "Group2Typeface" 		type = "int"   value = "2" />
+
+        <key name = "Group3Background" 		type = "color" value = "None" />
+        <key name = "Group3Foreground" 		type = "color" value = "Dark Green" />
+        <key name = "Group3Typeface" 		type = "int"   value = "0" />
+
+        <key name = "Group4Background" 		type = "color" value = "None" />
+        <key name = "Group4Foreground" 		type = "color" value = "Navy" />
+        <key name = "Group4Typeface" 		type = "int"   value = "0" />
+
+        <key name = "Group5Background" 		type = "color" value = "None" />
+        <key name = "Group5Foreground" 		type = "color" value = "Blue Violet" />
+        <key name = "Group5Typeface" 		type = "int"   value = "0" />
+    </section>
+
+    <section name = "Navy" >
+
+        <key name = "standard"		        type = "boolean" value = "true" />
+
+        <key name = "TextBackground"		type = "color" value = "Navy" />
+        <key name = "TextForeground" 		type = "color" value = "Gray90" />
+        <key name = "TextTypeface" 			type = "int"   value = "0" />
+
+        <key name = "MarginBackground" 		type = "color" value = "Blue" />
+        <key name = "MarginForeground" 		type = "color" value = "Gray80" />
+        <key name = "MarginTypeface" 		type = "int"   value = "0" />
+
+        <key name = "SelectedBackground" 	type = "color" value = "Blue Violet" />
+        <key name = "SelectedForeground" 	type = "color" value = "Light Blue" />
+        <key name = "SelectedTypeface" 		type = "int"   value = "0" />
+
+        <key name = "SecSelectedBackground" type = "color" value = "Steel Blue" />
+        <key name = "SecSelectedForeground" type = "color" value = "Red" />
+        <key name = "SecSelectedTypeface" 	type = "int"   value = "0" />
+
+        <key name = "CommentBackground" 	type = "color" value = "None" />
+        <key name = "CommentForeground" 	type = "color" value = "Green" />
+        <key name = "CommentTypeface" 		type = "int"   value = "1" />
+
+        <key name = "StringsBackground" 	type = "color" value = "None" />
+        <key name = "StringsForeground" 	type = "color" value = "Magenta" />
+        <key name = "StringsTypeface" 		type = "int"   value = "2" />
+
+        <key name = "ExpanderBackground" 	type = "color" value = "None" />
+        <key name = "ExpanderForeground" 	type = "color" value = "Steel Blue" />
+        <key name = "ExpanderTypeface" 		type = "int"   value = "2" />
+
+        <key name = "Group1Background" 		type = "color" value = "None" />
+        <key name = "Group1Foreground" 		type = "color" value = "Yellow" />
+        <key name = "Group1Typeface" 		type = "int"   value = "2" />
+
+        <key name = "Group2Background" 		type = "color" value = "None" />
+        <key name = "Group2Foreground" 		type = "color" value = "Turquoise" />
+        <key name = "Group2Typeface" 		type = "int"   value = "2" />
+
+        <key name = "Group3Background" 		type = "color" value = "None" />
+        <key name = "Group3Foreground" 		type = "color" value = "Brown" />
+        <key name = "Group3Typeface" 		type = "int"   value = "0" />
+
+        <key name = "Group4Background" 		type = "color" value = "None" />
+        <key name = "Group4Foreground" 		type = "color" value = "Orchid" />
+        <key name = "Group4Typeface" 		type = "int"   value = "0" />
+
+        <key name = "Group5Background" 		type = "color" value = "None" />
+        <key name = "Group5Foreground" 		type = "color" value = "Thistle" />
+        <key name = "Group5Typeface" 		type = "int"   value = "0" />
+    </section>
+
+    <section name = "Shine" >
+
+        <key name = "standard"		        type = "boolean" value = "true" />
+
+        <key name = "TextBackground"		type = "color" value = "Gray90" />
+        <key name = "TextForeground" 		type = "color" value = "Black" />
+        <key name = "TextTypeface" 			type = "int"   value = "0" />
+
+        <key name = "MarginBackground" 		type = "color" value = "Gray80" />
+        <key name = "MarginForeground" 		type = "color" value = "Black" />
+        <key name = "MarginTypeface" 		type = "int"   value = "0" />
+
+        <key name = "SelectedBackground" 	type = "color" value = "Gray70" />
+        <key name = "SelectedForeground" 	type = "color" value = "Khaki" />
+        <key name = "SelectedTypeface" 		type = "int"   value = "0" />
+
+        <key name = "SecSelectedBackground" type = "color" value = "Yellow" />
+        <key name = "SecSelectedForeground" type = "color" value = "Black" />
+        <key name = "SecSelectedTypeface" 	type = "int"   value = "0" />
+
+        <key name = "CommentBackground" 	type = "color" value = "None" />
+        <key name = "CommentForeground" 	type = "color" value = "Gray30" />
+        <key name = "CommentTypeface" 		type = "int"   value = "1" />
+
+        <key name = "StringsBackground" 	type = "color" value = "None" />
+        <key name = "StringsForeground" 	type = "color" value = "Indian Red" />
+        <key name = "StringsTypeface" 		type = "int"   value = "2" />
+
+        <key name = "ExpanderBackground" 	type = "color" value = "None" />
+        <key name = "ExpanderForeground" 	type = "color" value = "Red" />
+        <key name = "ExpanderTypeface" 		type = "int"   value = "2" />
+
+        <key name = "Group1Background" 		type = "color" value = "None" />
+        <key name = "Group1Foreground" 		type = "color" value = "Brown" />
+        <key name = "Group1Typeface" 		type = "int"   value = "2" />
+
+        <key name = "Group2Background" 		type = "color" value = "None" />
+        <key name = "Group2Foreground" 		type = "color" value = "Coral" />
+        <key name = "Group2Typeface" 		type = "int"   value = "2" />
+
+        <key name = "Group3Background" 		type = "color" value = "None" />
+        <key name = "Group3Foreground" 		type = "color" value = "Dark Green" />
+        <key name = "Group3Typeface" 		type = "int"   value = "0" />
+
+        <key name = "Group4Background" 		type = "color" value = "None" />
+        <key name = "Group4Foreground" 		type = "color" value = "Tan" />
+        <key name = "Group4Typeface" 		type = "int"   value = "0" />
+
+        <key name = "Group5Background" 		type = "color" value = "None" />
+        <key name = "Group5Foreground" 		type = "color" value = "Goldenrod" />
+        <key name = "Group5Typeface" 		type = "int"   value = "0" />
+    </section>
+
+</sections>
+
+</CONFIGURATION>

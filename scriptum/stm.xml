@@ -1,0 +1,362 @@
+<?xml version="1.0" ?>
+
+<CONFIGURATION>
+
+<!--    -->
+<!-- Language Settings File (lsf) for C -->
+<!-- Version 2.1, 18 May 2004, HDL Works B.V. -->
+<!--    -->
+
+<sections>
+    <section name = "Starlit3" >
+        <key name = "Enabled" type = "bool" value = "true" />
+        <key name = "File" type = "file" value = "$INSTALL/scriptum/lsf/sr3.xml" />
+        <key name = "Extension" type = "string" value = "stm" />
+        <key name = "Filter" type = "string" value = "Starlit Terminal Macro files (*.stm)" />
+        <key name = "BeginComment" type = "string" value = "/**" />
+        <key name = "EndComment" type = "string" value = "**/" />
+        <key name = "LineComment" type = "string" value = "#" />
+        <key name = "CaseSensitive" type = "bool" value = "true" />
+        <key name = "ColorSchem" type = "string" value = "Starlight" />
+        <key name = "ColorSchemPrint" type = "string" value = "Starlight" />
+    </section>
+
+<!-- Reserved Words -->
+    <section name = "Group1" >
+        <!-- Math & Complex Functions -->
+        <key name = "exp" />
+        <key name = "log" />
+        <key name = "log10" />
+        <key name = "sqrt" />
+        <key name = "sin" />
+        <key name = "cos" />
+        <key name = "tan" />
+        <key name = "asin" />
+        <key name = "acos" />
+        <key name = "atan" />
+        <key name = "rad" />
+        <key name = "deg" />
+        <key name = "exp" />
+        <key name = "abs" />
+        <key name = "log" />
+        <key name = "pow" />
+        <key name = "hypot" />
+        <key name = "atan2" />
+        <key name = "finite" />
+        <key name = "isinf" />
+        <key name = "isnan" />
+        <key name = "tanh" />
+        <key name = "frexp" />
+        <key name = "modf" />
+        <key name = "ceil" />
+        <key name = "fabs" />
+        <key name = "floor" />
+        <key name = "cosh" />
+        <key name = "sinh" />
+        <key name = "ldexp" />
+        <key name = "fmod" />
+        <key name = "exp2" />
+        <key name = "scalbln" />
+        <key name = "tgamma" />
+        <key name = "nearbyint" />
+        <key name = "lrint" />
+        <key name = "llrint" />
+        <key name = "round" />
+        <key name = "lround" />
+        <key name = "llround" />
+        <key name = "trunc" />
+        <key name = "remquo" />
+        <key name = "fdim" />
+        <key name = "fmax" />
+        <key name = "fmin" />
+        <key name = "fma" />
+        <key name = "infinity" />
+        <key name = "nan" />
+        <key name = "copysign" />
+        <key name = "logb" />
+        <key name = "ilogb" />
+        <key name = "asinh" />
+        <key name = "cbrt" />
+        <key name = "nextafter" />
+        <key name = "rint" />
+        <key name = "scalbn" />
+        <key name = "log1p" />
+        <key name = "expm1" />
+        <key name = "acosh" />
+        <key name = "atanh" />
+        <key name = "remainder" />
+        <key name = "gamma" />
+        <key name = "lgamma" />
+        <key name = "erf" />
+        <key name = "erfc" />
+        <key name = "log2" />
+        <!-- String Functions -->
+        <key name = "memcmp" />
+        <key name = "memcpy" />
+        <key name = "memmove" />
+        <key name = "memset" />
+        <key name = "strcat" />
+        <key name = "strcmp" />
+        <key name = "strcpy" />
+        <key name = "strlen" />
+        <key name = "strncat" />
+        <key name = "strncmp" />
+        <key name = "strncpy" />
+        <key name = "strnlen" />
+        <key name = "strlwr" />
+        <key name = "strupr" />
+        <key name = "strcmp2" />
+        <key name = "strcmp3" />
+        <key name = "strncmp2" />
+        <key name = "strncmp3" />
+        <key name = "strins" />
+        <key name = "strpop" />
+        <key name = "strmsk" />
+        <key name = "strletlen" />
+        <key name = "strunilen" />
+        <key name = "UTF8_Val" />
+        <key name = "UTF8_String" />
+        <key name = "xtoi" />
+        <key name = "xtol" />
+        <key name = "xtoll" />
+        <key name = "split" />
+        <key name = "vsprintf" />
+        <key name = "vsprintf1" />
+        <!-- Stdlib Functions -->
+        <key name = "iabs" />
+        <key name = "atof" />
+        <key name = "atoff" />
+        <key name = "atoi" />
+        <key name = "atol" />
+        <key name = "atoll" />
+        <key name = "random" />
+        <key name = "srandom" />
+        <key name = "labs" />
+        <key name = "rand" />
+        <key name = "srand" />
+        <key name = "itoa" />
+        <key name = "utoa" />
+        <key name = "llabs" />
+        <!-- Dio Instances -->
+        <key name = "GetArgBytes" />
+        <key name = "Tick" />
+        <key name = "Delay" />
+        <!-- Console Instances -->
+        <key name = "getch" />
+        <key name = "kbhit" />
+        <key name = "Print" />
+        <key name = "Print1" />
+        <key name = "GetInt" />
+        <key name = "GetFloat" />
+        <key name = "GetStr" />
+        <key name = "fopen" />
+        <key name = "fclose" />
+        <key name = "fputs" />
+        <key name = "fputc" />
+        <key name = "fgetc" />
+        <key name = "SER_Setup" />
+        <key name = "SER_Print" />
+        <key name = "SER_Setup1" />
+        <key name = "SER_Connect" />
+        <key name = "SER_Disconnect" />
+        <key name = "SER_Write" />
+        <key name = "SER_Print" />
+        <key name = "SER_Available" />
+        <key name = "SER_Read" />
+        <key name = "SER_Flush" />
+        <!-- Class Instances -->
+        <key name = "GetArgBytes" />
+        <key name = "Init" />
+        <key name = "Clear" />
+        <key name = "Print" />
+        <key name = "Scan" />
+        <key name = "Available" />
+        <key name = "Flush" />
+        <key name = "Peek" />
+        <key name = "Write" />
+        <key name = "WriteCtrl" />
+        <key name = "Read" />
+        <key name = "Open" />
+        <key name = "Close" />
+        <key name = "SetBaud" />
+        <key name = "SetNewLine" />
+        <key name = "SetTimeout" />
+        <key name = "Available" />
+        <key name = "Flush" />
+        <key name = "Wait" />
+        <key name = "Seek" />
+        <key name = "Tell" />
+    </section>
+    <section name = "Group2" >
+        <!-- Complex & Math Constants -->
+        <key name = "PI" />
+        <key name = "EXP" />
+        <!-- Default Instances -->
+        <key name = "TRUE" />
+        <key name = "FALSE" />
+        <key name = "NULL" />
+        <!-- variable for sterm -->
+        <key name = "CONSOLE" />
+        <key name = "COMPORT" />
+        <key name = "COM" />
+        <key name = "SER_CHARR" />
+        <!-- class variable -->
+        <key name = "ln" />
+        <key name = "fname" />
+        <key name = "fp" />
+        <key name = "md" />
+        <key name = "idx" />
+        <key name = "baud" />
+        <key name = "timeout" />
+    </section>
+    <section name = "Group3" >
+        <key name = "main" />
+        <key name = "main>>" />
+        <key name = "main:" />
+        <key name = "setup" />
+        <key name = "setup>>" />
+        <key name = "setup:" />
+        <key name = "start" />
+        <key name = "start>>" />
+        <key name = "start:" />
+        <key name = "loop" />
+        <key name = "loop>>" />
+        <key name = "loop:" />
+        <key name = "$" />
+        <key name = "$>>" />
+        <key name = "$:" />
+        <key name = "int" />
+        <key name = "float" />
+        <key name = "ref" />
+        <key name = "str" />
+        <key name = "file_t" />
+        <key name = "con_t" />
+        <key name = "com_t" />
+        <key name = "VA_LIST" />
+        <key name = "_int" />
+        <key name = "_float" />
+        <key name = "_ref" />
+        <key name = "_str" />
+        <key name = "_file_t" />
+        <key name = "_con_t" />
+        <key name = "_com_t" />
+        <key name = "svm_init" />
+    </section>
+    <section name = "Group4" >
+        <key name = "$target" />
+        <key name = "$import" />
+        <key name = "$class" />
+        <key name = "$sClass" />
+        <key name = "$sFunc" />
+        <key name = "$struct" />
+        <key name = "$const" />
+        <key name = "$icon" />
+        <key name = "$name" />
+        <key name = "console" />
+		<key name = "math" />
+        <key name = "serial" />
+        <key name = "string" />
+        <key name = "studio" />
+        <key name = "stulib" />
+        <key name = "stuop" />
+        <key name = "stutype" />
+        <key name = "$shl2" />
+        <key name = "$shr2" />
+        <key name = "$eq2" />
+        <key name = "$ne2" />
+        <key name = "$add3" />
+        <key name = "$sub3" />
+        <key name = "$mul3" />
+        <key name = "$res" />
+        <key name = "$cas" />
+        <key name = "$switch" />
+        <key name = "$swotch" />
+        <key name = "$exp" />
+        <key name = "$mul2" />
+        <key name = "$div2" />
+        <key name = "$mod2" />
+        <key name = "$dmod" />
+        <key name = "$polar" />
+        <key name = "$hypot" />
+        <key name = "$divmul" />
+        <key name = "$muldiv" />
+        <key name = "$add2" />
+        <key name = "$sub2" />
+        <key name = "$shl" />
+        <key name = "$shr" />
+        <key name = "$diamond" />
+        <key name = "$cross" />
+        <key name = "$le" />
+        <key name = "$be" />
+        <key name = "$el" />
+        <key name = "$eb" />
+        <key name = "$mos" />
+        <key name = "$eq" />
+        <key name = "$ne" />
+        <key name = "$and" />
+        <key name = "$or" />
+        <key name = "$plus" />
+        <key name = "$minus" />
+        <key name = "$not" />
+        <key name = "$bnot" />
+        <key name = "$star" />
+        <key name = "$mul" />
+        <key name = "$div" />
+        <key name = "$mod" />
+        <key name = "$add" />
+        <key name = "$sub" />
+        <key name = "$lt" />
+        <key name = "$bt" />
+        <key name = "$band" />
+        <key name = "$bxor" />
+        <key name = "$bor" />
+        <key name = "$put" />
+        <key name = "$rand" />
+        <key name = "$rand2" />
+        <key name = "$if" />
+        <key name = "$else" />
+        <key name = "$elif" />
+        <key name = "$comma" />
+        <key name = "$fill" />
+        <key name = "$align" />
+        <key name = "$percent" />
+        <key name = "max" />
+        <key name = "min" />
+        <key name = "sgn" />
+    </section>
+    <section name = "Group5" >
+        <key name = "if" />
+        <key name = "uif" />
+        <key name = "elif" />
+        <key name = "else" />
+        <key name = "else:" />
+        <key name = "while" />
+        <key name = "for" />
+        <key name = "case" />
+        <key name = "endcase" />
+        <key name = "default" />
+        <key name = "default:" />
+        <key name = "switch" />
+        <key name = "when" />
+        <key name = "where" />
+        <key name = "goto" />
+        <key name = "return" />
+        <key name = "break" />
+        <key name = "continue" />
+        <key name = "again" />
+        <key name = "self" />
+        <key name = "self_" />
+        <key name = "this" />
+        <key name = "sizeof" />
+        <key name = "unitsize" />
+        <key name = "length" />
+        <key name = "typeof" />
+        <key name = "dim" />
+        <key name = "definedM" />
+        <key name = "definedG" />
+        <key name = "definedC" />
+        <key name = "definedF" />
+    </section>
+</sections>
+
+</CONFIGURATION>

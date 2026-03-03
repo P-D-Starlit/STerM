@@ -1,0 +1,84 @@
+/// Studio for Starlit VIT6
+/// 001 Default Includes
+$import(stuop);
+
+/// 000 System Functions
+$const(NVIC_SystemReset, 0x000F0011, ref, ref);
+$const(GetArgBytes$ref, 0x00008011, ref, int);
+
+
+/// 001 Timing Functions
+///    Name         Address         REF     Output Type
+$const(Tick,        0x00100011,     ref,    int	        );
+$const(Delay$int,   0x00101011,     ref                 );
+
+
+
+/// 002 SVM Memory Management Functions
+///    Name                     Address         REF     Output Type
+$const(MEM_AllocInit,           0x00210011,     ref                 );
+$const(MEM_Alloc$ref$int,       0x00211011,     ref                 );
+$const(MEM_Realloc$ref$int,     0x00212011,     ref                 );
+$const(MEM_Free$ref,            0x00213011,     ref                 );
+$const(MEM_AvailableSize$ref,   0x00214011,     ref,    int         );
+$const(MEM_GarbageCollect,      0x00215011,     ref                 );
+$const(MEM_AllocThr$int,        0x00216011,     ref                 );
+
+
+/// Custom GPIO Functions
+///    Name                     Address         REF     Output Type
+$const(GPIO_Write$int$int,      0x00C00012,     ref                 );
+$const(GPIO_Read$int,           0x00C02012,     ref,    int         );
+$const(GPIO_Mode$int$int,       0x00C03012,     ref                 );
+$const(GPIO_GetMode$int,        0x00C04012,     ref,    int         );
+$const(GPIO_Pull$int$int,       0x00C05012,     ref                 );
+$const(GPIO_GetPull$int,        0x00C06012,     ref,    int         );
+$const(GPIO_OType$int$int,      0x00C07012,     ref                 );
+$const(GPIO_GetOType$int,       0x00C08012,     ref,    int         );
+$const(GPIO_OSpeed$int$int,     0x00C09012,     ref                 );
+$const(GPIO_GetOSpeed$int,      0x00C0A012,     ref,    int         );
+
+/// Arduino IO Functions
+$const(PinMode$int$int,         0x00CF1012,     ref,    int         );
+$const(pinMode$int$int,         0x00CF1012,     ref                 );
+$const(DigitalRead$int,         0x00C02012,     ref,    int         );
+$const(digitalRead$int,         0x00C02012,     ref,    int         );
+$const(DigitalWrite$int$int,    0x00C00012,     ref                 );
+$const(digitalWrite$int$int,    0x00C00012,     ref                 );
+$const(AnalogRead$int,          0x00CF3012,     ref,    int         );
+analogRead(pin:int):int         {return(AnalogRead(pin) >> 6);}
+$const(AnalogWrite$int$int,     0x00CF2012,     ref,    int         );
+analogWrite(pin:int, v:int)     {AnalogWrite(pin, v << 4);}
+
+/// Arduino Constants
+$const(INPUT,                   0,              int                 );
+$const(OUTPUT,                  1,              int                 );
+$const(INPUT_PULLUP,            2,              int                 );
+$const(ANALOGIN,                3,              int                 );
+$const(INPUT_PULLDOWN,          4,              int                 );
+$const(OUTPUT_OPENDRAIN,        5,              int                 );
+$const(PWMOUT,                  6,              int                 );
+$const(UART,                    7,              int                 );
+$const(SPIMODE,                 8,              int                 );
+$const(I2CMODE_PUSHPULL,        9,              int                 );
+$const(I2CMODE,                 10,             int                 );
+$const(I2CMODE_PULLUP,          11,             int                 );
+$const(UART_TX,                 7,              int                 );
+$const(UART_RX,                 7,              int                 );
+$const(LOW,                     0,              int                 );
+$const(HIGH,                    1,              int                 );
+
+
+/// Event LED Setup
+$const(ELED_Mode$int,           0x00B01012,     ref,    int         );
+$const(ELED_DISABLE,            0,              int                 );
+$const(ELED_ENABLEL,            1,              int                 );
+$const(ELED_ENABLER,            2,              int                 );
+$const(ELED_ENABLE,             3,              int                 );
+$const(ELED_FTDI,               4,              int                 );
+$const(ELED_BT,                 5,              int                 );
+$const(ELED_BTFTDI,             6,              int                 );
+$const(ELED_USER,               7,              int                 );
+$const(ELED_USERFTDI,           8,              int                 );
+$const(ELED_USERBT,             9,              int                 );
+$const(ELED_ALLUART,            10,             int                 );

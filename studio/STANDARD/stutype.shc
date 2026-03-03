@@ -1,0 +1,164 @@
+/// Starlit Type에 관한 정의
+
+/// 기본 자료형의 관계
+
+/// 기본 자료형
+/// (0) int
+/// (1) float
+/// (2) ref
+/// (3) int64
+/// (4) byte
+/// (5) double
+/// (6) raw
+/// (7) uint
+/// (8) uint64
+/// (9) short
+/// (10) ushort
+/// (11) char
+
+
+/// 형변환 함수
+/// 내장함수로 정의된 경우
+///        int  float int64 byte double uint uint64 short ushort char (From)
+/// int    -    50    55    A4   59     AD   B8     C0    C1     C2
+/// float  53   -     54    A5   5C     AE   B9     C3    C4     C5
+/// int64  52   51    -     A6   5A     AF   BA     C6    C7     C8
+/// byte   A0   A2    A1    -    A3     B0   BB     C9    CA     CB
+/// double 57   5B    58    A7   -      B1   BC     CC    CD     CE
+/// uint   A8   A9    AA    AB   AC     -    56     CF    D0     D1
+/// uint64 B2   B3    B4    B5   B6     B7   -      D2    D3     D4
+/// short  D5   D6    D7    D8   D9     DA   DB     -     DC     DD
+/// ushort DE   DF    E0    E1   E2     E3   E4     E5    -      E6
+/// char   E7   E8    E9    EA   EB     EC   ED     EE    EF     -
+/// (To)
+
+/// int    -    50    55    A4   59     AD   B8     C0    C1     C2
+$const(int$float,  0x00050010, ref, int);
+$const(int$int64,  0x00055010, ref, int);
+$const(int$byte,   0x000A4010, ref, int);
+$const(int$double, 0x00059010, ref, int);
+$const(int$uint,   0x000AD010, ref, int);
+$const(int$uint64, 0x000B8010, ref, int);
+$const(int$short,  0x000C0010, ref, int);
+$const(int$ushort, 0x000C1010, ref, int);
+$const(int$char,   0x000C2010, ref, int);
+
+/// float  53   -     54    A5   5C     AE   B9     C3    C4     C5
+$const(float$int,    0x00053010, ref, float);
+$const(float$int64,  0x00054010, ref, float);
+$const(float$byte,   0x000A5010, ref, float);
+$const(float$double, 0x0005C010, ref, float);
+$const(float$uint,   0x000AE010, ref, float);
+$const(float$uint64, 0x000B9010, ref, float);
+$const(float$short,  0x000C3010, ref, float);
+$const(float$ushort, 0x000C4010, ref, float);
+$const(float$char,   0x000C5010, ref, float);
+
+/// int64  52   51    -     A6   5A     AF   BA     C6    C7     C8
+$const(int64$int,    0x00052010, ref, int64);
+$const(int64$float,  0x00051010, ref, int64);
+$const(int64$byte,   0x000A6010, ref, int64);
+$const(int64$double, 0x0005A010, ref, int64);
+$const(int64$uint,   0x000AF010, ref, int64);
+$const(int64$uint64, 0x000BA010, ref, int64);
+$const(int64$short,  0x000C6010, ref, int64);
+$const(int64$ushort, 0x000C7010, ref, int64);
+$const(int64$char,   0x000C8010, ref, int64);
+
+/// byte   A0   A2    A1    -    A3     B0   BB     C9    CA     CB
+$const(byte$int,    0x000A0010, ref, byte);
+$const(byte$float,  0x000A2010, ref, byte);
+$const(byte$int64,  0x000A1010, ref, byte);
+$const(byte$double, 0x000A3010, ref, byte);
+$const(byte$uint,   0x000B0010, ref, byte);
+$const(byte$uint64, 0x000BB010, ref, byte);
+$const(byte$short,  0x000C9010, ref, byte);
+$const(byte$ushort, 0x000CA010, ref, byte);
+$const(byte$char,   0x000CB010, ref, byte);
+
+/// double 57   5B    58    A7   -      B1   BC     CC    CD     CE
+$const(double$int,    0x00057010, ref, double);
+$const(double$float,  0x0005B010, ref, double);
+$const(double$int64,  0x00058010, ref, double);
+$const(double$byte,   0x000A7010, ref, double);
+$const(double$uint,   0x000B1010, ref, double);
+$const(double$uint64, 0x000BC010, ref, double);
+$const(double$short,  0x000CC010, ref, double);
+$const(double$ushort, 0x000CD010, ref, double);
+$const(double$char,   0x000CE010, ref, double);
+
+/// uint   A8   A9    AA    AB   AC     -    56     CF    D0     D1
+$const(uint$int,    0x000A8010, ref, uint);
+$const(uint$float,  0x000A9010, ref, uint);
+$const(uint$int64,  0x000AA010, ref, uint);
+$const(uint$byte,   0x000AB010, ref, uint);
+$const(uint$double, 0x000AC010, ref, uint);
+$const(uint$uint64, 0x00056010, ref, uint);
+$const(uint$short,  0x000CF010, ref, uint);
+$const(uint$ushort, 0x000D0010, ref, uint);
+$const(uint$char,   0x000D1010, ref, uint);
+
+/// uint64 B2   B3    B4    B5   B6     B7   -      D2    D3     D4
+$const(uint64$int,    0x000B2010, ref, uint64);
+$const(uint64$float,  0x000B3010, ref, uint64);
+$const(uint64$int64,  0x000B4010, ref, uint64);
+$const(uint64$byte,   0x000B5010, ref, uint64);
+$const(uint64$double, 0x000B6010, ref, uint64);
+$const(uint64$uint,   0x000B7010, ref, uint64);
+$const(uint64$short,  0x000D2010, ref, uint64);
+$const(uint64$ushort, 0x000D3010, ref, uint64);
+$const(uint64$char,   0x000D4010, ref, uint64);
+
+/// short  D5   D6    D7    D8   D9     DA   DB     -     DC     DD
+$const(short$int,    0x000D5010, ref, short);
+$const(short$float,  0x000D6010, ref, short);
+$const(short$int64,  0x000D7010, ref, short);
+$const(short$byte,   0x000D8010, ref, short);
+$const(short$double, 0x000D9010, ref, short);
+$const(short$uint,   0x000DA010, ref, short);
+$const(short$uint64, 0x000DB010, ref, short);
+$const(short$ushort, 0x000DC010, ref, short);
+$const(short$char,   0x000DD010, ref, short);
+
+/// ushort DE   DF    E0    E1   E2     E3   E4     E5    -      E6
+$const(ushort$int,    0x000DE010, ref, ushort);
+$const(ushort$float,  0x000DF010, ref, ushort);
+$const(ushort$int64,  0x000E0010, ref, ushort);
+$const(ushort$byte,   0x000E1010, ref, ushort);
+$const(ushort$double, 0x000E2010, ref, ushort);
+$const(ushort$uint,   0x000E3010, ref, ushort);
+$const(ushort$uint64, 0x000E4010, ref, ushort);
+$const(ushort$short,  0x000E5010, ref, ushort);
+$const(ushort$char,   0x000E6010, ref, ushort);
+
+/// char   E7   E8    E9    EA   EB     EC   ED     EE    EF     -
+$const(char$int,      0x000E7010, ref, char);
+$const(char$float,    0x000E8010, ref, char);
+$const(char$int64,    0x000E9010, ref, char);
+$const(char$byte,     0x000EA010, ref, char);
+$const(char$double,   0x000EB010, ref, char);
+$const(char$uint,     0x000EC010, ref, char);
+$const(char$uint64,   0x000ED010, ref, char);
+$const(char$short,    0x000EE010, ref, char);
+$const(char$ushort,   0x000EF010, ref, char);
+
+
+
+
+///Ref
+$const(val$ref,				0x00093010,		ref,	int		);
+$const(int$ref,				0x00090010,		ref,	int		);
+$const(int64$ref,			0x00091010,		ref,	int64	);
+$const(float$ref,			0x00092010,		ref,	float	);
+$const(double$ref,			0x00094010,		ref,	double	);
+$const(uint$ref,			0x00095010,		ref,	uint	);
+$const(uint64$ref,			0x00096010,		ref,	uint64	);
+$const(short$ref,			0x00097010,		ref,	short	);
+$const(ushort$ref,			0x00098010,		ref,	ushort	);
+$const(char$ref,			0x00099010,		ref,	char	);
+$const(byte$ref,			0x0009A010,		ref,	byte	);
+
+
+$const(TRUE,                1,              int);
+$const(FALSE,               0,              int);
+$const(NULL,                0,              ref);

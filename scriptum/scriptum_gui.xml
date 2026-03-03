@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SCRIPTUM_GUI>
+
+<main
+    applicationName="Scriptum"
+    fileversion= "1.0"
+/>
+
+<accelerators>
+  <accel key = "F1"                         cmd = "WordInfo"/>
+  <accel key = "Ctrl+A"                     cmd = "SelectAll"/>
+  <accel key = "Ctrl+F"                     cmd = "TextFind"/>
+  <accel key = "Ctrl+C"                     cmd = "EditCopy"/>
+  <accel key = "Ctrl+E"                     cmd = "TemplateExpand"/>
+  <accel key = "Ctrl+G"                     cmd = "TextGotoLine"/>
+  <accel key = "Ctrl+H"                     cmd = "TextFind"/>
+  <accel key = "Ctrl+I"                     cmd = "IdentifierExpand"/>
+  <accel key = "Ctrl+N"                     cmd = "FileNew"/>
+  <accel key = "Ctrl+O"                     cmd = "FileOpen"/>
+  <accel key = "Ctrl+P"                     cmd = "Print"/>
+  <accel key = "Ctrl+R"                     cmd = "EditRedo"/>
+  <accel key = "Ctrl+S"                     cmd = "FileSave"/>
+  <accel key = "Ctrl+T"                     cmd = "EditDeleteWord"/>
+  <accel key = "Ctrl+V"                     cmd = "EditPaste"/>
+  <accel key = "Ctrl+X"                     cmd = "EditCut"/>
+  <accel key = "Ctrl+Y"                     cmd = "EditDeleteLine"/>
+  <accel key = "Ctrl+Z"                     cmd = "EditUndo"/>
+
+  <accel key = "Ctrl+Shift+F"               cmd = "TextFindSel"/>
+  <accel key = "Ctrl+Shift+S"               cmd = "FileSaveAs"/>
+  <accel key = "Ctrl+Insert"                cmd = "EditCopy"/>
+  <accel key = "Ctrl+Del"                   cmd = "EditClear"/>
+
+  <accel key = "Shift+Insert"               cmd = "EditPaste"/>
+  <accel key = "Shift+Delete"               cmd = "EditCut"/>
+
+
+  <accel key = "Alt+1"                      cmd = "MarkSet1"/>
+  <accel key = "Alt+2"                      cmd = "MarkSet2"/>
+  <accel key = "Alt+3"                      cmd = "MarkSet3"/>
+  <accel key = "Alt+4"                      cmd = "MarkSet4"/>
+  <accel key = "Alt+5"                      cmd = "MarkSet5"/>
+  <accel key = "Alt+6"                      cmd = "MarkSet6"/>
+  <accel key = "Alt+7"                      cmd = "MarkSet7"/>
+  <accel key = "Alt+8"                      cmd = "MarkSet8"/>
+  <accel key = "Alt+9"                      cmd = "MarkSet9"/>
+
+  <accel key = "Ctrl+0"                     cmd = "FontsizeReset"/>
+  <accel key = "Ctrl+1"                     cmd = "MarkGoto1"/>
+  <accel key = "Ctrl+2"                     cmd = "MarkGoto2"/>
+  <accel key = "Ctrl+3"                     cmd = "MarkGoto3"/>
+  <accel key = "Ctrl+4"                     cmd = "MarkGoto4"/>
+  <accel key = "Ctrl+5"                     cmd = "MarkGoto5"/>
+  <accel key = "Ctrl+6"                     cmd = "MarkGoto6"/>
+  <accel key = "Ctrl+7"                     cmd = "MarkGoto7"/>
+  <accel key = "Ctrl+8"                     cmd = "MarkGoto8"/>
+  <accel key = "Ctrl+9"                     cmd = "MarkGoto9"/>
+
+  <accel key = "Alt+Ctrl+F"                 cmd = "FoldOpenCurrent"/>
+  <!--
+  <accel key = "Alt+["                      cmd = "FoldOpenCurrent"/>
+  -->
+  <accel key = "Alt+["                      cmd = "FoldOpenHierarchical"/>
+  <accel key = "Alt++"                      cmd = "FoldsExpand"/>
+  <accel key = "Alt+="                      cmd = "FoldsExpand"/>
+  <accel key = "Alt+-"                      cmd = "FoldsCollapse"/>
+  <accel key = "Alt+]"                      cmd = "FoldCloseCurrent"/>
+  <accel key = "Ctrl+;"                     cmd = "Oppositechar"/>
+
+  <accel key = "Ctrl+B"                     cmd = "MarkerNext"/>
+  <accel key = "Ctrl+Shift+B"               cmd = "MarkerPrev"/>
+
+  <accel key = "Ctrl+Q"                     cmd = "Exit"/>
+  <accel key = "Alt+F7"                     cmd = "ErrorPrevious"/>
+  <accel key = "Alt+F8"                     cmd = "ErrorNext"/>
+
+  <accel key = "Alt+T"                      cmd = "Templates"/>
+
+  <accel key = "F3"                         cmd = "TextFindNext"/>
+  <accel key = "Shift+F3"                   cmd = "TextFindPrevious"/>
+  <accel key = "Ctrl+F3"                    cmd = "TextFindPrevious"/>
+  <accel key = "F6"                         cmd = "WindowNext"/>
+  <accel key = "Shift+F6"                   cmd = "WindowPrevious"/>
+  <accel key = "Ctrl+F6"                    cmd = "WindowNext"/>
+  <!--accel key = "Ctrl+Shift+TAB"             cmd = "WindowNext"/-->
+
+  <accel key = "Shift+TAB"                  cmd = "TextIndent"/>
+  <accel key = "Ctrl+Shift+TAB"             cmd = "TextUnindent"/>
+  <accel key = "Ctrl+TAB"             cmd = "TextUnindent"/>
+
+
+  <accel key = "Ctrl+/"                     cmd = "TextComment"/>
+  <accel key = "Ctrl+Shift+/"               cmd = "TextUnComment"/>
+
+  <accel key = "Ctrl+L"                     cmd = "ToolLint"/>
+  <accel key = "F9"                         cmd = "ToolVerify"/>
+
+  <accel key = "SunCopy"                    cmd = "EditCopy"/>
+  <accel key = "SunCut"                     cmd = "EditCut"/>
+  <accel key = "SunFind"                    cmd = "TextFind"/>
+  <accel key = "SunPaste"                   cmd = "EditPaste"/>
+  <accel key = "SunUndo"                    cmd = "EditUndo"/>
+
+</accelerators>
+
+
+<toolbars>
+
+  <toolbar name="Main" dock="top">
+    <btn cmd = "FileNew"                    bmp = "filenew"/>
+    <btn cmd = "FileOpen"                   bmp = "fileopen"/>
+    <btn cmd = "FileSave"                   bmp = "filesave"/>
+    <btn cmd = "FileSaveAll"                bmp = "filesaveall"/>
+    <btn cmd = "Print"                      bmp = "print"/>
+    <separator/>
+    <!-- Verify, coding and lint will also showup in the HDLCompanion Scriptum -->
+    <btn cmd = "ToolShow"                   bmp = "ease"/>
+    <btn cmd = "ToolVerify"                 bmp = "question"/>
+    <btn cmd = "ToolLint"                   bmp = "lint"/>
+    <btn cmd = "ToolCoding"                 bmp = "coding"/>
+    <separator/>
+    <btn cmd = "TclEval"                    bmp = "tcl"/>
+    <btn cmd = "ErrorFirst"                 bmp = "errortop"/>
+    <btn cmd = "ErrorPrevious"              bmp = "errorprev"/>
+    <btn cmd = "ErrorNext"                  bmp = "errornext"/>
+    <btn cmd = "ErrorLast"                  bmp = "errorbot"/>
+    <separator/>
+    <btn cmd = "WindowCloseAll"             bmp = "closeall"/>
+    <btn cmd = "WindowCascade"              bmp = "cascade" />
+    <btn cmd = "WindowTileVertical"         bmp = "tilevertical"/>
+    <btn cmd = "WindowTileHorizontal"       bmp = "tilehorizontal"/>
+    <separator/>
+    <btn cmd = "FoldsCollapse"              bmp = "fold_incr"/>
+    <btn cmd = "FoldsExpand"                bmp = "fold_decr"/>
+    <btn cmd = "OptionsWindow"              bmp = "info"/>
+    <btn cmd = "ShowWhiteSpace"             bmp = "eol"/>
+  </toolbar>
+
+  <toolbar name="Actions" dock="left">
+    <btn cmd = "EditUndo"                   bmp = "undo"/>
+    <btn cmd = "EditRedo"                   bmp = "redo"/>
+    <btn cmd = "EditCopy"                   bmp = "copy"/>
+    <btn cmd = "EditCut"                    bmp = "cut"/>
+    <btn cmd = "EditPaste"                  bmp = "paste"/>
+    <separator/>
+    <btn cmd = "TextFind"                   bmp = "search"/>
+    <btn cmd = "TextFindNext"               bmp = "searchnext"/>
+    <btn cmd = "TextFindPrevious"           bmp = "searchprev"/>
+    <btn cmd = "TextFindSel"                bmp = "searchselected"/>
+    <btn cmd = "TextGotoLine"               bmp = "gotoline"/>
+    <separator/>
+    <btn cmd = "TextSpaces2Tabs"            bmp = "space2tab"/>
+    <btn cmd = "TextTabs2Spaces"            bmp = "tab2space"/>
+    <btn cmd = "TextIndent"                 bmp = "indent"/>
+    <btn cmd = "TextUnIndent"               bmp = "unindent"/>
+    <btn cmd = "TextStringIndent"           bmp = "stringindent"/>
+    <btn cmd = "TextComment"                bmp = "comment"/>
+    <btn cmd = "TextUnComment"              bmp = "uncomment"/>
+    <separator/>
+    <btn cmd = "TextFold"                   bmp = "collapse"/>
+    <btn cmd = "TextUnFold"                 bmp = "expand"/>
+    <separator/>
+    <btn cmd = "TextReserved2upper"         bmp = "reserved2upper"/>
+    <btn cmd = "TextReserved2lower"         bmp = "reserved2lower"/>
+    <btn cmd = "TextToUpper"                bmp = "toupper"/>
+    <btn cmd = "TextToLower"                bmp = "tolower"/>
+  </toolbar>
+
+</toolbars>
+
+<menus>
+ <menu name="MainMenu">
+  <popup caption="&amp;File" >
+   <item label = "&amp;New"                 cmd = "FileNew"/>
+   <item label = "&amp;Open..."             cmd = "FileOpen"/>
+   <item label = "&amp;Insert"              cmd = "FileInsert"/>
+   <item label = "&amp;Save"                cmd = "FileSave"/>
+   <item label = "S&amp;ave as..."          cmd = "FileSaveAs"/>
+   <item label = "Save a&amp;ll"            cmd = "FileSaveAll"/>
+   <separator/>
+   <item label = "&amp;Directory..."        cmd = "Directory"/>
+   <separator/>
+   <item label = "&amp;Print..."            cmd = "Print"/>
+   <separator/>
+   <item label = "&amp;Exit"                cmd = "Exit"/>
+   <separator/>
+   <item label = "&amp;1"                   cmd = "LoadMruFile1"/>
+   <item label = "&amp;2"                   cmd = "LoadMruFile2"/>
+   <item label = "&amp;3"                   cmd = "LoadMruFile3"/>
+   <item label = "&amp;4"                   cmd = "LoadMruFile4"/>
+   <item label = "&amp;5"                   cmd = "LoadMruFile5"/>
+   <item label = "&amp;6"                   cmd = "LoadMruFile6"/>
+   <item label = "&amp;7"                   cmd = "LoadMruFile7"/>
+   <item label = "&amp;8"                   cmd = "LoadMruFile8"/>
+   <item label = "&amp;9"                   cmd = "LoadMruFile9"/>
+  </popup>
+
+  <popup caption="&amp;Edit">
+   <item label = "&amp;Undo"                cmd = "EditUndo"/>
+   <item label = "&amp;Redo"                cmd = "EditRedo"/>
+   <item label = "&amp;Cut"                 cmd = "EditCut"/>
+   <item label = "C&amp;opy"                cmd = "EditCopy"/>
+   <item label = "&amp;Paste"               cmd = "EditPaste"/>
+   <item label = "C&amp;lear"               cmd = "EditClear"/>
+   <separator/>
+   <item label = "&amp;Select all"          cmd = "SelectAll"/>
+   <separator/>
+   <item label = "&amp;Templates..."        cmd = "Templates"/>
+   <item label = "&amp;Expand identifier"   cmd = "IdentifierExpand"/>
+  </popup>
+
+  <popup caption="&amp;Search">
+   <item label = "&amp;Find..."             cmd = "TextFind"/>
+   <item label = "Find &amp;next"           cmd = "TextFindNext"/>
+   <item label = "Find &amp;previous"       cmd = "TextFindPrevious"/>
+   <item label = "Find &amp;selected"       cmd = "TextFindSel"/>
+   <item label = "&amp;Go to line number..." cmd = "TextGotoLine"/>
+  </popup>
+
+  <popup caption="Fo&amp;lding">
+     <item label = "&amp;Close all"         cmd = "FoldsClose"/>
+     <item label = "&amp;Open all"          cmd = "FoldsOpen"/>
+     <item label = "Co&amp;llapse"          cmd = "FoldsCollapse"/>
+     <item label = "&amp;Expand"            cmd = "FoldsExpand"/>
+    <separator/>
+   <item label = "&amp;Update"              cmd = "FoldsUpdate"/>
+  </popup>
+
+  <popup caption="&amp;Options">
+   <item label = "&amp;Color schemes..."    cmd = "ColorSchemes"/>
+   <item label = "&amp;File associations..."cmd = "OptionsFileAssociations"/>
+   <item label = "&amp;Languages..."        cmd = "OptionsLanguages"/>
+   <item label = "&amp;Session..."          cmd = "OptionsEditor"/>
+   <item label = "&amp;Window..."           cmd = "OptionsWindow"/>
+  </popup>
+
+  <popup caption="&amp;Window">
+   <item label = "Close &amp;all"           cmd = "WindowCloseAll"/>
+   <item label = "&amp;Cascade"             cmd = "WindowCascade"/>
+   <item label = "&amp;Tile vertical"       cmd = "WindowTileVertical"/>
+   <item label = "Tile &amp;horizontal"     cmd = "WindowTileHorizontal"/>
+   <item label = "&amp;Next window"         cmd = "WindowNext"/>
+   <item label = "&amp;Previous window"     cmd = "WindowPrevious"/>
+  </popup>
+
+  <popup caption="&amp;Help">
+   <item label = "&amp;Scriptum manual (PDF)"           cmd = "HelpDocument1"/>
+   <item label = "Scriptum manual (&amp;Windows help)"  cmd = "HelpDocument2"/>
+   <separator/>
+   <item label = "&amp;About"               cmd = "AboutTextEditor"/>
+  </popup>
+ </menu>
+</menus>
+
+</SCRIPTUM_GUI>
+

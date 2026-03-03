@@ -1,0 +1,29 @@
+/// Stulib for Starlit VIT6
+
+
+///    Name                     Address         REF     Output Type
+$const(iabs$int,                 0x01002011,     ref,    int             );
+
+$const(atof$ref,                0x01010011,     ref,    double          );
+$const(atoff$ref,               0x01011011,     ref,    float           );
+$const(atoi$ref,                0x01012011,     ref,    int             );
+$const(atol$ref,                0x01013011,     ref,    int             );
+$const(atoll$ref,               0x01014011,     ref,    int64           );
+$const(random,                  0x01016011,     ref,    int             );
+$const(srandom$int,             0x01018011,     ref                     );
+
+$const(calloc$int$int,          0x01020011,     ref,    ref             );
+$const(free$int$int,            0x01023011,     ref                     );
+
+$const(labs$int,                0x01030011,     ref,    int             );
+$const(malloc$int,              0x01032011,     ref,    ref             );
+
+$const(rand,                    0x01060011,     ref,    int             );
+$const(realloc$ref$int,         0x01061011,     ref,    ref             );
+
+$const(srand$int,               0x01070011,     ref                     );
+
+$const(itoa$int$ref$int         0x010B2011,     ref,    ref             );
+$const(utoa$int$ref$int         0x010B3011,     ref,    ref             );
+
+$const(llabs$int64              0x010F0011,     ref,    int64           );

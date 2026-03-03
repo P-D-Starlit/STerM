@@ -1,0 +1,414 @@
+/**
+
+**************Starlight 3.0**************
+*										*
+*	STarlight Universal OPerators		*
+*										*
+*	STUOP.shc							*
+*										*
+*	2023. 04. 01						*
+*	Maded Bi P. J. Kim					*
+*										*
+*										*
+*	Starlight,							*
+*	Virtual Machine in					*
+*	Embedded System						*
+*										*
+*	**Starlight OOP Center**			*
+*										*
+*****************************************
+
+**/
+
+$import(stutype);
+
+///Default Constants : Bool Value and Truth.
+$const(TRUE, 1, int);
+$const(FALSE, 0, int);
+$const(NULL, 0, ref);
+
+///Defaultly, Starlit doesn't offers the unsigned type variable and short type(16-bit) variable.
+///You may define studio for 16-bit and unsigned type if you want to use it.
+
+///Previously, this pointer was the reference of self.
+##this(self_);
+
+///If I use the variable arguments, I have to define this class first.
+$class(VA_LIST){
+	#va:byte;
+}
+
+///Default For Structures
+##for{x}from{a}to{b}(for({x}={a},{x}<={b},{x}={x}+1));
+##else if(elif);
+##{a}if{b}else{c}(if({b},{a},{c}));
+
+svm_init(){
+    Init();
+}
+
+
+
+///Single Term Operators
+
+///Logical Not
+$const($not$int,			0x00010010,		ref,	int		);
+$const($not$int64,			0x00011010,		ref,	int		);
+
+
+///Bitwise Not
+$const($bnot$int,			0x00020010,		ref,	int		);
+$const($bnot$int64,			0x00021010,		ref,	int64	);
+$const($bnot$uint,			0x00020010,		ref,	uint	);
+$const($bnot$uint64,		0x00021010,		ref,	uint64	);
+
+///Minus
+$const($minus$int,			0x00030010,		ref,	int		);
+$const($minus$int64,		0x00031010,		ref,	int64	);
+$const($minus$float,		0x00032010,		ref,	float	);
+$const($minus$double,		0x00033010,		ref,	double	);
+
+///Boolean
+$const(Bool$int,			0x00040010,		ref,	int		);
+$const(Bool$int64,			0x00041010,		ref,	int		);
+
+
+
+
+///Double Term Operators
+///Multiply
+$const($mul$int$int,		0x01010010,		ref,	int		);
+$const($mul$int64$int64,	0x01011010,		ref,	int64	);
+$const($mul$uint$uint,		0x01013010,		ref,	uint	);
+$const($mul$uint64$uint64,	0x01014010,		ref,	uint64	);
+$const($mul$float$float,	0x01012010,		ref,	float	);
+$const($mul$double$double,	0x01015010,		ref,	double	);
+$mul(a:short, b:short )    :short   {return( short  (int(a)  * int(b) ) );}
+$mul(a:ushort,b:ushort)    :ushort  {return( ushort (uint(a) * uint(b)) );}
+$mul(a:char,  b:byte  )    :byte    {return( byte   (uint(a) * uint(b)) );}
+$mul(a:char,  b:char  )    :char    {return( char   (int(a)  * int(b) ) );}
+
+
+///Exponential
+$const($exp$int$int,		0x0101A010,		ref,	int		);
+$const($exp$int64$int64,	0x0101B010,		ref,	int64	);
+$const($exp$uint$uint,		0x010F4010,		ref,	uint	);
+$const($exp$uint64$uint64,	0x010F5010,		ref,	uint64	);
+$const($exp$float$float,	0x0101C010,		ref,	float	);
+$const($exp$double$double,	0x0300C010,		ref,	double	);
+
+///Division
+$const($div$int$int,		0x01020010,		ref,	int		);
+$const($div$int64$int64,	0x01021010,		ref,	int64	);
+$const($div$uint$uint,		0x01023010,		ref,	uint	);
+$const($div$uint64$uint64,	0x01024010,		ref,	uint64	);
+$const($div$float$float,	0x01022010,		ref,	float	);
+$const($div$double$double,	0x01029010,		ref,	double	);
+$div(a:short, b:short )    :short   {return( short  (int(a)  / int(b) ) );}
+$div(a:ushort,b:ushort)    :ushort  {return( ushort (uint(a) / uint(b)) );}
+$div(a:char,  b:byte  )    :byte    {return( byte   (uint(a) / uint(b)) );}
+$div(a:char,  b:char  )    :char    {return( char   (int(a)  / int(b) ) );}
+
+
+$div2(a:int, b:int):int{
+    if(a < 0 && a %% b){
+        return(a / b - 1);
+    }
+    else{
+        return(a / b);
+    }
+}
+
+$div2(a:int64, b:int64):int64{
+    if(a < 0 && a %% b){
+        return(a / b - 1);
+    }
+    else{
+        return(a / b);
+    }
+}
+
+
+///Modular
+$const($mod$int$int,		0x01025010,		ref,	int		);
+$const($mod$int64$int64,	0x01026010,		ref,	int64	);
+$const($mod$uint$uint,		0x010F6010,		ref,	uint	);
+$const($mod$uint64$uint64,	0x010F7010,		ref,	uint64	);
+$mod(a:short, b:short )    :short   {return( short  (int(a)  % int(b) ) );}
+$mod(a:ushort,b:ushort)    :ushort  {return( ushort (uint(a) % uint(b)) );}
+$mod(a:char,  b:byte  )    :byte    {return( byte   (uint(a) % uint(b)) );}
+$mod(a:char,  b:char  )    :char    {return( char   (int(a)  % int(b) ) );}
+
+
+$mod2(a:int, b:int):int{
+    result = a % b;
+    if(result < 0){
+        result += b;
+    }
+    return(result);
+}
+
+$mod2(a:int64, b:int64):int64{
+    result = a % b;
+    if(result < 0){
+        result += b;
+    }
+    return(result);
+}
+
+///max/min
+$const($diamond$int$int,      0x010A0010,     ref,    int     );
+$const($cross$int$int,        0x010A5010,     ref,    int     );
+$const($diamond$float$float,  0x010A4010,     ref,    float   );
+$const($cross$float$float,    0x010A9010,     ref,    float   );
+$const($diamond$double$double,0x010F1010,     ref,    double  );
+$const($cross$double$double,  0x010F2010,     ref,    double  );
+$const(max$int$int,           0x010A0010,     ref,    int     );
+$const(min$int$int,           0x010A5010,     ref,    int     );
+$const(max$float$float,       0x010A4010,     ref,    float   );
+$const(min$float$float,       0x010A9010,     ref,    float   );
+$const(max$double$double,     0x010F1010,     ref,    double  );
+$const(min$double$double,     0x010F2010,     ref,    double  );
+$const(sgn$int$int,           0x010AA010,     ref,    int     );
+$const(sgn$float$float,       0x010AE010,     ref,    float   );
+$const(sgn$double$double,     0x010F3010,     ref,    double  );
+
+
+///Addition
+$const($add$int$int,		0x01030010,		ref,	int		);
+$const($add$uint$uint,		0x01030010,		ref,	uint	);
+$const($add$ref$int,		0x01030010,		ref,	ref		);
+$const($add$ref$uint,		0x01030010,		ref,	ref		);
+$const($add$int64$int64,	0x01031010,		ref,	int64	);
+$const($add$uint64$uint64,	0x01031010,		ref,	uint64	);
+$const($add$float$float,	0x01032010,		ref,	float	);
+$const($add$double$double,	0x01033010,		ref,	double	);
+
+
+///Substitution
+$const($sub$int$int,		0x01040010,		ref,	int		);
+$const($sub$uint$uint,		0x01040010,		ref,	uint	);
+$const($sub$ref$int,		0x01040010,		ref,	ref		);
+$const($sub$ref$uint,		0x01040010,		ref,	ref		);
+$const($sub$int64$int64,	0x01041010,		ref,	int64	);
+$const($sub$uint64$uint64,	0x01041010,		ref,	uint64	);
+$const($sub$float$float,	0x01042010,		ref,	float	);
+$const($sub$double$double,	0x01043010,		ref,	double	);
+$const($sub$ref$ref,        0x01040010,     ref,    int     );
+
+///Shift
+$const($shl$int$int,		0x01050010,		ref,	int		);
+$const($shl$int64$int64,	0x01051010,		ref,	int64	);
+$const($shr$int$int,		0x01052010,		ref,	int		);
+$const($shr$int64$int64,	0x01053010,		ref,	int64	);
+$const($shr2$int$int,		0x01054010,		ref,	int		);
+$const($shr2$int64$int64,	0x01055010,		ref,	int64	);
+
+$const($shl$uint$uint,		0x01050010,		ref,	uint	);
+$const($shl$uint64$uint64,	0x01051010,		ref,	uint64	);
+$const($shr$uint$uint,		0x01052010,		ref,	uint	);
+$const($shr$uint64$uint64,	0x01053010,		ref,	uint64	);
+$const($shr2$uint$uint,		0x01054010,		ref,	uint	);
+$const($shr2$uint64u$int64,	0x01055010,		ref,	uint64	);
+
+///comparision
+$const($lt$int$int,			0x01060010,		ref,	int		);
+$const($lt$int64$int64,		0x01061010,		ref,	int		);
+$const($lt$uint$uint,		0x01100010,		ref,	int		);
+$const($lt$uint64$uint64,	0x01101010,		ref,	int		);
+$const($lt$float$float,		0x01062010,		ref,	int		);
+$const($lt$double$double,	0x01069010,		ref,	int		);
+
+$const($le$int$int,			0x010B0010,		ref,	int		);
+$const($le$int64$int64,		0x010B1010,		ref,	int		);
+$const($le$uint$uint,		0x01102010,		ref,	int		);
+$const($le$uint64$uint64,	0x01103010,		ref,	int		);
+$const($le$float$float,		0x010B2010,		ref,	int		);
+$const($le$double$double,	0x010B9010,		ref,	int		);
+$const($bt$int$int,			0x010C0010,		ref,	int		);
+$const($bt$int64$int64,		0x010C1010,		ref,	int		);
+$const($bt$uint$uint,		0x01104010,		ref,	int		);
+$const($bt$uint64$uint64,	0x01105010,		ref,	int		);
+$const($bt$float$float,		0x010C2010,		ref,	int		);
+$const($bt$double$double,	0x010C9010,		ref,	int		);
+$const($be$int$int,			0x010D0010,		ref,	int		);
+$const($be$int64$int64,		0x010D1010,		ref,	int		);
+$const($be$uint$uint,		0x01106010,		ref,	int		);
+$const($be$uint64$uint64,	0x01107010,		ref,	int		);
+$const($be$float$float,		0x010D2010,		ref,	int		);
+$const($be$double$double,	0x010D9010,		ref,	int		);
+
+$ltlt(x1:int, x2:int, x3:int):int{
+    return(x1 < x2 && x2 < x3);
+}
+$lelt(x1:int, x2:int, x3:int):int{
+    return(x1 <= x2 && x2 < x3);
+}
+$lele(x1:int, x2:int, x3:int):int{
+    return(x1 <= x2 && x2 <= x3);
+}
+$ltle(x1:int, x2:int, x3:int):int{
+    return(x1 < x2 && x2 <= x3);
+}
+
+$btbt(x1:int, x2:int, x3:int):int{
+    return(x1 > x2 && x2 > x3);
+}
+$bebt(x1:int, x2:int, x3:int):int{
+    return(x1 >= x2 && x2 > x3);
+}
+$bebe(x1:int, x2:int, x3:int):int{
+    return(x1 >= x2 && x2 >= x3);
+}
+$btbe(x1:int, x2:int, x3:int):int{
+    return(x1 > x2 && x2 >= x3);
+}
+
+$ltlt(x1:float, x2:float, x3:float):int{
+    return(x1 < x2 && x2 < x3);
+}
+$lelt(x1:float, x2:float, x3:float):int{
+    return(x1 <= x2 && x2 < x3);
+}
+$lele(x1:float, x2:float, x3:float):int{
+    return(x1 <= x2 && x2 <= x3);
+}
+$ltle(x1:float, x2:float, x3:float):int{
+    return(x1 < x2 && x2 <= x3);
+}
+
+$btbt(x1:float, x2:float, x3:float):int{
+    return(x1 > x2 && x2 > x3);
+}
+$bebt(x1:float, x2:float, x3:float):int{
+    return(x1 >= x2 && x2 > x3);
+}
+$bebe(x1:float, x2:float, x3:float):int{
+    return(x1 >= x2 && x2 >= x3);
+}
+$btbe(x1:float, x2:float, x3:float):int{
+    return(x1 > x2 && x2 >= x3);
+}
+
+$btbt(x1:double, x2:double, x3:double):int{
+    return(x1 > x2 && x2 > x3);
+}
+$bebt(x1:double, x2:double, x3:double):int{
+    return(x1 >= x2 && x2 > x3);
+}
+$bebe(x1:double, x2:double, x3:double):int{
+    return(x1 >= x2 && x2 >= x3);
+}
+$btbe(x1:double, x2:double, x3:double):int{
+    return(x1 > x2 && x2 >= x3);
+}
+
+
+
+$ltltlt(x1:int, x2:int, x3:int, x4:int):int{
+    return(x1 < x2 && x2 < x3 && x3 < x4);
+}
+$ltltle(x1:int, x2:int, x3:int, x4:int):int{
+    return(x1 < x2 && x2 < x3 && x3 <= x4);
+}
+$ltlele(x1:int, x2:int, x3:int, x4:int):int{
+    return(x1 < x2 && x2 <= x3 && x3 <= x4);
+}
+$ltlelt(x1:int, x2:int, x3:int, x4:int):int{
+    return(x1 < x2 && x2 <= x3 && x3 < x4);
+}
+$lelelt(x1:int, x2:int, x3:int, x4:int):int{
+    return(x1 <= x2 && x2 <= x3 && x3 < x4);
+}
+$lelele(x1:int, x2:int, x3:int, x4:int):int{
+    return(x1 <= x2 && x2 <= x3 && x3 <= x4);
+}
+$leltle(x1:int, x2:int, x3:int, x4:int):int{
+    return(x1 <= x2 && x2 < x3 && x3 <= x4);
+}
+$leltlt(x1:int, x2:int, x3:int, x4:int):int{
+    return(x1 <= x2 && x2 < x3 && x3 < x4);
+}
+
+$btbtbt(x1:int, x2:int, x3:int, x4:int):int{
+    return(x1 > x2 && x2 > x3 && x3 > x4);
+}
+$btbtbe(x1:int, x2:int, x3:int, x4:int):int{
+    return(x1 > x2 && x2 > x3 && x3 >= x4);
+}
+$btbebe(x1:int, x2:int, x3:int, x4:int):int{
+    return(x1 > x2 && x2 >= x3 && x3 >= x4);
+}
+$btbebt(x1:int, x2:int, x3:int, x4:int):int{
+    return(x1 > x2 && x2 >= x3 && x3 > x4);
+}
+$bebebt(x1:int, x2:int, x3:int, x4:int):int{
+    return(x1 >= x2 && x2 >= x3 && x3 > x4);
+}
+$bebebe(x1:int, x2:int, x3:int, x4:int):int{
+    return(x1 >= x2 && x2 >= x3 && x3 >= x4);
+}
+$bebtbe(x1:int, x2:int, x3:int, x4:int):int{
+    return(x1 >= x2 && x2 > x3 && x3 >= x4);
+}
+$bebtbt(x1:int, x2:int, x3:int, x4:int):int{
+    return(x1 >= x2 && x2 > x3 && x3 > x4);
+}
+
+
+
+
+
+
+$const($eq$int$int,			0x01063010,		ref,	int	);
+$const($eq$int64$int64,		0x01064010,		ref,	int	);
+$const($eq$uint$uint,		0x01063010,		ref,	int	);
+$const($eq$uint64$uint64,	0x01064010,		ref,	int	);
+$const($eq$float$float,		0x01065010,		ref,	int	);
+$const($eq$double$double,	0x01068010,		ref,	int	);
+$const($ne$int$int,			0x010B3010,		ref,	int	);
+$const($ne$int64$int64,		0x010B4010,		ref,	int	);
+$const($ne$uint$uint,		0x010B3010,		ref,	int	);
+$const($ne$uint64$uint64,	0x010B4010,		ref,	int	);
+$const($ne$float$float,		0x010B5010,		ref,	int	);
+$const($ne$double$double,	0x010B8010,		ref,	int	);
+
+$eqeq(x1:int, x2:int, x3:int):int{
+    return(x1 == x2 && x2 == x3);
+}
+$eqne(x1:int, x2:int, x3:int):int{
+    return(x1 == x2 && x2 != x3);
+}
+$nene(x1:int, x2:int, x3:int):int{
+    return(x1 != x2 && x2 != x3);
+}
+$neeq(x1:int, x2:int, x3:int):int{
+    return(x1 != x2 && x2 == x3);
+}
+
+
+
+
+
+///Bitwise Operators
+$const($band$int$int,		0x01070010,		ref,	int		);
+$const($band$int64$int64,	0x01071010,		ref,	int64	);
+$const($bor$int$int,		0x01072010,		ref,	int		);
+$const($bor$int64$int64,	0x01073010,		ref,	int64	);
+$const($bxor$int$int,		0x01074010,		ref,	int		);
+$const($bxor$int64$int64,	0x01075010,		ref,	int64	);
+
+$const($band$uint$uint,		0x01070010,		ref,	uint	);
+$const($band$uint64$uint64,	0x01071010,		ref,	uint64	);
+$const($bor$uint$uint,		0x01072010,		ref,	uint	);
+$const($bor$uint64$uint64,	0x01073010,		ref,	uint64	);
+$const($bxor$uint$uint,		0x01074010,		ref,	uint	);
+$const($bxor$uint64$uint64,	0x01075010,		ref,	uint64	);
+
+
+///Logical Operators
+$const($and$int$int,		0x01080010,		ref,	int		);
+$const($or$int$int,			0x01081010,		ref,	int		);
+$const($and$int64$int64,	0x01082010,		ref,	int64	);
+$const($or$int64$int64,		0x01083010,		ref,	int64	);
+

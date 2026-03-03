@@ -1,0 +1,225 @@
+$import(stulib);
+$import(string);
+
+$const(getch, 0x70200012, ref, int);
+$const(kbhit, 0x70201012, ref, int);
+$const(Print1$ref, 0x70202012, ref, int);
+$const(Print1$str, 0x70203012, ref);
+
+$const(Print$ref, 0x70204012, ref);
+Print(st:str){
+    Print(_st);
+}
+
+$const(GetInt, 0x70220012, ref, int);
+$const(GetFloat, 0x70221012, ref, float);
+$const(GetStr$ref, 0x70223012, ref);
+GetStr():str{
+    st = str;
+    GetStr(_st);
+    return(st);
+}
+
+$class(con_t){
+    #ln:ref;
+}
+
+CONSOLE = con_t;
+
+
+$shl(con:_con_t, st:str):_con_t{
+    Print(_st);
+    return(con_);
+}
+
+$shl(con:_con_t, st:ref):_con_t{
+    Print(st);
+    return(con_);
+}
+
+$shl(con:_con_t, a:int):_con_t{
+    Print(f"{a}");
+    return(con_);
+}
+
+$shl(con:_con_t, a:float):_con_t{
+    Print(f"{a:.2f}");
+    return(con_);
+}
+
+$shr(st:str, con:_con_t):_con_t{
+    Print(_st);
+    return(con_);
+}
+
+$shr(st:ref, con:_con_t):_con_t{
+    Print(st);
+    return(con_);
+}
+
+$shr(a:int, con:_con_t):_con_t{
+    Print(f"{a}");
+    return(con_);
+}
+
+$shr(a:float, con:_con_t):_con_t{
+    Print(f"{a:.2f}");
+    return(con_);
+}
+
+$shr(con:_con_t, st:_str):_con_t{
+    st = GetStr();
+    return(con_);
+}
+
+$shr(con:_con_t, a:_int):_con_t{
+    a = GetInt();
+    return(con_);
+}
+
+$shr(con:_con_t, a:_float):_con_t{
+    a = GetFloat();
+    return(con_);
+}
+
+$shl(st:_str, con:_con_t):_con_t{
+    st = GetStr();
+    return(con_);
+}
+
+$shl(a:_int, con:_con_t):_con_t{
+    a = GetInt();
+    return(con_);
+}
+
+$shl(a:_float, con:_con_t):_con_t{
+    a = GetFloat();
+    return(con_);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$const(fopen$ref$ref, 0x70210012, ref, ref);
+fopen(st:str, md:int):ref{
+    return(fopen(_st, md));
+}
+$const(fclose$ref, 0x70211012, ref);
+
+$const(fputs$ref$ref, 0x70212012, ref);
+fputs(st:str, fp:ref){
+    fputs(_st, fp);
+}
+
+$const(fputc$int$ref, 0x70213012, ref);
+$const(fgetc$int$ref, 0x70214012, ref);
+$const(fseek$ref$int, 0x70215012, ref);
+$const(ftell$ref,     0x70216012, ref, int);
+
+FILE_Open(fname:ref, md:ref, ln:ref):file_t{
+    result = file_t;
+    result.fname = fname;
+    result.md = md;
+    result.fp = fopen(fname, md);
+    result.ln = ln;
+    return(result);
+}
+
+
+$class(file_t){
+    #fname:ref;
+    #md:ref;
+    #fp:ref;
+    #ln:ref;
+    
+    Open(fname:ref, md:ref, ln:ref){
+        self.fname = fname;
+        self.md = md;
+        self.fp = fopen(fname, md);
+        self.ln = ln;
+    }
+    
+    
+    Close(){
+        fclose(self.fp);
+        self.fname = NULL;
+        self.md = NULL;
+        self.fp = NULL;
+    }
+    
+    Print(st:str){
+        fputs(st, self.fp);
+    }
+    Print(st:ref){
+        fputs(st, self.fp);
+    }
+    
+    Write(ch:int){
+        fputc(ch, self.fp);
+    }
+    
+    Read():int{
+        return(fgetc(self.fp));
+    }
+    
+    Scan():str{
+        st = str;
+        idx = 0;
+        for(idx = 0, idx < 255, idx+=1){
+            re = self.Read();
+            if(re != -1){
+                st.string[idx] = re;
+                if(st.string[idx] == '\n'){
+                    idx = idx+1;
+                    st.string[idx] = 0;
+                    break;
+                }
+                idx = idx+1;
+            }
+            else{
+                st.string[idx] = 0;
+                break;
+            }
+        }
+        st.string[idx] = 0;
+        return(st);
+    }
+    
+    Seek(pos:int){
+        fseek(self.fp, pos);
+    }
+    
+    Tell(){
+        ftell(self.fp);
+    }
+}
+
+
+$shl(fil:_file_t, st:str):_file_t{
+    fil.Print(st);
+    return(fil_);
+}
+$shl(fil:_file_t, st:ref):_file_t{
+    fil.Print(st);
+    return(fil_);
+}
+
+$shr(fil:_file_t, st:_str):_file_t{
+    st = fil.Scan();
+    return(fil_);
+}
+
+
+
+
+

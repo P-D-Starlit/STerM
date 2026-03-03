@@ -1,0 +1,7 @@
+STAR3.studioPath=studio;
+STAR3.brate=115200;
+STAR3.port=COM7;
+STAR3.edit=C:\Program Files\HDL Works\Scriptum24Rev1\bin\pc\scriptum.exe;
+STAR3.VM=C:\users\apple\desktop\Starlight3_Books\STAR_SVM\Star_SVM3\Release\STAR_SVM3.exe;
+STAR3.BASE=C:\Users\apple\Desktop\Starlight3_Books\STAR_Compiler\Release\;
+STAR3.empty=0;

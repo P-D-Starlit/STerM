@@ -1,0 +1,154 @@
+
+
+
+$const(SER_Setup1$int$ref,      0x70300012, ref     );
+$const(SER_Connect$int$int,     0x70301012, ref, int);
+$const(SER_Disconnect$int,      0x70303012, ref, int);
+$const(SER_Write$int$int,       0x70310012, ref     );
+$const(SER_Print$int$ref,       0x70311012, ref     );
+$const(SER_Available$int,       0x70312012, ref, int);
+$const(SER_Read$int,            0x70313012, ref, int);
+$const(SER_Flush$int,           0x70314012, ref     );
+
+
+SER_CHARR = int[64];
+SER_Setup(cnt:int, name:_str){
+    for(i:0:(cnt-1)){
+        SER_CHARR[i] = val(name_ + i*256);
+    }
+    SER_Setup1(cnt, _SER_CHARR);
+}
+
+
+SER_Print(idx:int, st:str){
+    SER_Print(idx, _st);
+}
+
+
+$class(com_t){
+    #ln:ref;
+    #idx:int;
+    #baud:int;
+    #timeout:int;
+    
+    Open():int{
+        res = SER_Connect(self.idx, self.baud);
+        return(res);
+    }
+    Open(brate:int, ln:ref):int{
+        self.baud = brate();
+        self.ln = ln;
+        res = SER_Connect(self.idx, self.baud);
+        return(res);
+    }
+    Close():int{
+        res = SER_Connect(self.idx, self.baud);
+        return(res);
+    }
+    SetBaud(brate:int){
+        self.baud = brate;
+    }
+    SetNewLine(ln:ref){
+        self.ln = ln;
+    }
+    SetTimeout(tim:int){
+        self.timeout = tim;
+    }
+    
+    Available():int{
+        res = SER_Available(self.idx);
+        return(res);
+    }
+    Read():int{
+        res = SER_Read(self.idx);
+        return(res);
+    }
+    Write(ch:int){
+        SER_Write(self.idx, ch);
+    }
+    Flush(){
+        SER_Flush(self.idx);
+    }
+    Wait(tim:int){
+        cnt = 0;
+        while(!self.Available()){
+            Delay(1);
+            cnt = cnt + 1;
+            if(cnt > tim){
+                break;
+            }
+        }
+    }
+    Wait(){
+        self.Wait(self.timeout);
+    }
+    
+    Scan():str{
+        st = str;
+        idx = 0;
+        for(idx = 0, idx < 255, idx+=1){
+            self.Wait(self.timeout);
+            if(SER_Available(self.idx)){
+                st.string[idx] = SER_Read(self.idx);
+                if(st.string[idx] == 0x0a){
+                    idx = idx+1;
+                    st.string[idx] = 0;
+                    break;
+                }
+                ///idx = idx+1;
+            }
+            else{
+                st.string[idx] = 0;
+                break;
+            }
+            
+        }
+        st.string[idx] = 0;
+        return(st);
+    }
+    
+    WriteCtrl(ch:int){
+        SER_Write(self.idx, ch & 0x1F);
+    }
+    
+    
+}
+
+COM = com_t[64];
+
+$shl(com:_com_t, st:str):_com_t{
+    SER_Print(com.idx, st);
+    return(com_);
+}
+$shl(com:_com_t, st:ref):_com_t{
+    SER_Print(com.idx, st);
+    return(com_);
+}
+$shr(st:str, com:_com_t):_com_t{
+    SER_Print(com.idx, st);
+    return(com_);
+}
+$shr(st:ref, com:_com_t):_com_t{
+    SER_Print(com.idx, st);
+    return(com_);
+}
+
+///Scan
+$shr(com:_com_t, st:_str):_com_t{
+    st = com.Scan();
+    return(com_);
+}
+
+$shl(st:_str, com:_com_t):_com_t{
+    st = com.Scan();
+    return(com_);
+}
+
+///Available
+$star(com:_com_t):int{
+    return(com.Available());
+}
+
+
+
+

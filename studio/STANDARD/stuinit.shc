@@ -1,0 +1,47 @@
+$import(console);
+$import(serial);
+$import(studio);
+$import(math);
+///$import(serial); 해당 기능은 PC에서 미지원.
+///OLED = OLED_Black();
+///PuTTY = PuTTY_Serial(115200); 해당 기능은 PC에서 미지원.
+///##(OLED<<("/r%s"%($)));///문자열만 단독 사용시
+///##(OLED<<("/g%s"%str(#)));///숫자만 단독 사용시
+///FTDI = FTDI_Serial(115200);해당 기능은 PC에서 미지원.
+
+WaitKey(){
+    ///while(!kbhit()){}
+    getch();
+}
+
+Init(){
+    GLOBAL_Init__();
+    CONSOLE.ln = "\r\n";
+    $if(definedG(COMPORT)){
+        len = length(COMPORT);
+        SER_Setup(len, COMPORT);
+        for(i:0:len-1){
+            COM[i].ln = "\r\n";
+            COM[i].idx = i;
+            COM[i].baud = 115200;
+            COM[i].timeout = 300;
+        }
+    }
+    $if(definedF(setup)){
+        setup();
+    }
+    $if(definedF(start)){
+        start();
+    }
+    $if(definedF(main)){
+        main();
+    }
+    $if(definedF(loop)){
+        while(1){
+            loop();
+        }
+    }
+    GLOBAL_End__();
+}
+
+

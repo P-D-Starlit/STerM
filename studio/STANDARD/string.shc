@@ -1,0 +1,470 @@
+/// String for Starlit VIT6
+$import(stuop);
+
+/// Memory
+///   (Name                     Address         REF     Output Type     );
+$const(memchr$ref$int$int,      0x02000011,     ref,    ref             );
+$const(memcmp$ref$ref$int,      0x02001011,     ref,    int             );
+$const(memcpy$ref$ref$int,      0x02002011,     ref,    ref             );
+$const(memmove$ref$ref$int,     0x02003011,     ref,    ref             );
+$const(memset$ref$int$int,      0x02003011,     ref,    ref             );
+
+/// String
+///   (Name                     Address         REF     Output Type     );
+$const(strcat$ref$ref,          0x02010011,     ref,    ref             );
+$const(strchr$ref$int,          0x02011011,     ref,    ref             );
+$const(strcmp$ref$ref,          0x02012011,     ref,    int             );
+$const(strcoll$ref$ref,         0x02013011,     ref,    int             );
+$const(strcpy$ref$ref,          0x02014011,     ref,    ref             );
+$const(strcspn$ref$ref,         0x02015011,     ref,    int             );
+$const(strerror$int,            0x02016011,     ref,    ref             );
+$const(strlen$ref,              0x02017011,     ref,    int             );
+$const(strncat$ref$ref$int,     0x02018011,     ref,    ref             );
+$const(strncmp$ref$ref$int,     0x02019011,     ref,    int             );
+$const(strncpy$ref$ref$int,     0x0201A011,     ref,    ref             );
+$const(strpbrk$ref$ref,         0x0201B011,     ref,    ref             );
+$const(strrchr$ref$int,         0x0201C011,     ref,    ref             );
+$const(strspn$ref$ref,          0x0201D011,     ref,    int             );
+$const(strstr$ref$ref,          0x0201E011,     ref,    ref             );
+$const(strtok$ref$ref,          0x0201F011,     ref,    ref             );
+
+///   (Name                                 Address         REF     Output Type     );
+$const(strxfrm$ref$ref,                     0x02020011,     ref,    int             );
+$const(timingsafe_bcmp$ref$ref$int,         0x02025011,     ref,    int             );
+$const(timingsafe_memcmp$ref$ref$int,       0x02026011,     ref,    int             );
+$const(memccpy$ref$ref$int$int,             0x02027011,     ref,    int             );
+
+///   (Name                     Address         REF     Output Type     );
+$const(stpcpy$ref$ref,          0x02030011,     ref,    ref             );
+$const(stpncpy$ref$ref$int,     0x02031011,     ref,    ref             );
+$const(strdup$ref,              0x02032011,     ref,    ref             );
+$const(strndup$ref$int,         0x02034011,     ref,    ref             );
+$const(strerror_r$int$ref$int,  0x02036011,     ref,    int             );
+
+///   (Name                     Address         REF     Output Type     );
+$const(strlcat$ref$ref$int,     0x02040011,     ref,    int             );
+$const(strlcpy$ref$ref$int,     0x02041011,     ref,    int             );
+$const(strnlen$ref$int,         0x02042011,     ref,    int             );
+$const(strnstr$ref$int,         0x02044011,     ref,    ref             );
+$const(strlwr$ref,              0x02045011,     ref,    ref             );
+$const(strupr$ref,              0x02046011,     ref,    ref             );
+$const(strsignal$int,           0x02047011,     ref,    ref             );
+
+/// String in Starlit
+///   (Name                     Address         REF     Output Type     );
+$const(strcmp2$ref$ref,         0x00500012,     ref,    int             );
+$const(strcmp3$ref$ref,         0x00501012,     ref,    int             );
+$const(strncmp2$ref$ref$int,    0x00502012,     ref,    int             );
+$const(strncmp3$ref$ref$int,    0x00503012,     ref,    int             );
+$const(strins$ref$ref$int,      0x00506012,     ref,    int             );
+$const(strins$ref$int$int$ref,  0x00507012,     ref,    int             );
+$const(strpop$ref$ref$int,      0x00508012,     ref,    int             );
+$const(strmsk$ref$ref$int,      0x00509012,     ref,    int             );
+$const(strletlen$ref,           0x0050A012,     ref,    int             );
+$const(strunilen$ref,           0x0050B012,     ref,    int             );
+$const(UTF8_Val$ref$ref,        0x0050C012,     ref,    int             );
+$const(UTF8_String$ref$int,     0x0050D012,     ref,    int             );
+
+///   (Name                     Address         REF     Output Type     );
+$const(xtoi$ref,                0x00510012,     ref,    int             );
+$const(xtol$ref,                0x00510012,     ref,    int             );
+$const(xtoll$ref,               0x00511012,     ref,    int             );
+
+///   (Name                     Address         REF     Output Type     );
+$const(split$ref$int$ref,       0x00520012,     ref,    int             );
+$const(split$ref$ref$ref$ref,   0x00521012,     ref,    int             );
+$const(vsprintf$ref$ref$ref,    0x00522012,     ref,    ref             );
+$const(vsprintf1$ref$ref$ref,   0x00523012,     ref,    ref             );
+sprintf(st:ref, format:ref, va:VA_LIST):ref{
+    res = vsprintf(st, format, _va);
+    return(res);
+}
+
+/// String Class
+str(x:int):str{
+    return("%d" % x);
+}
+
+str(x:float):str{
+    return("%.2f" % x);
+}
+
+str(x:double):str{
+    return("%.3lf" % x);
+}
+
+str(x:int64):str{
+    return("%lld" % x);
+}
+
+str(x:ref):str{
+    #result():str;
+    if(val(x) == 0){
+        strcpy(_result, "NULL");
+        return(result);
+    }
+    elif((val(x) & 0xFFFFFFFF0) == 0x00000000){///실수로 15 이하가 더해진 경우. - 포인터는 15 이하가 될 수 없음.
+        result = "%XR" % x;
+        return(result);
+    }
+    strcpy(_result, x);
+    return(result);
+}
+
+str128(x:ref):str128{
+    #result():str128;
+    strcpy(_result, x);
+    return(result);
+}
+
+str64(x:ref):str64{
+    #result():str64;
+    strcpy(_result, x);
+    return(result);
+}
+
+str32(x:ref):str32{
+    #result():str32;
+    strcpy(_result, x);
+    return(result);
+}
+
+str16(x:ref):str16{
+    #result():str16;
+    strcpy(_result, x);
+    return(result);
+}
+
+str128(x:str):str128{
+    #result():str128;
+    strcpy(_result, _x);
+    return(result);
+}
+
+str64(x:str):str64{
+    #result():str64;
+    strcpy(_result, _x);
+    return(result);
+}
+
+str32(x:str):str32{
+    #result():str32;
+    strcpy(_result, _x);
+    return(result);
+}
+
+str16(x:str):str16{
+    #result():str16;
+    strcpy(_result, _x);
+    return(result);
+}
+
+
+$comma(v:str):str{
+    ///콤마를 찾는다.
+    len = strlen(_v);
+    
+    for(u = 0, u < len, u += 1){
+        if(v.string[u] == '.'){
+            break;
+        }
+    }
+    
+    temp = f"";
+    cnt = 0;
+    for(i)from(3)to(u-1){
+        if(v.string[u - i - 1] == ' '){
+            break;
+        }
+        if(i % 3 == 0){
+            strcpy(_temp, _v + u - i);
+            strcpy(_v + u - i, ",");
+            strcat(_v, _temp);
+            cnt+=1;
+        }
+    }
+    
+    if(cnt >= u - i){
+        strcpy(_temp, _v + u - i);
+        return(temp);
+    }
+    else{
+        strcpy(_temp, _v + cnt);
+        return(temp);
+    }
+    
+    return(v);
+}
+
+$fill(key:ref, v:str):str{
+    len = strlen(_v);
+    res = f"";
+    
+    for(u = 0, v.string[u] != 0, u += 1){
+        if(v.string[u] == ' '){
+            strcat(_res, key);
+        }
+        else{
+            temp = f"";
+            temp.string[0] = v.string[u];
+            temp.string[1] = 0;
+            strcat(_res, _temp);
+        }
+    }
+    
+    return(res);
+    
+}
+
+$align(mode:int, v:str):str{
+    ///띄어쓰기 기준으로 위치 조정.
+    ///앞의 띄어쓰기 개수 읽기
+    for(b = 0, v.string[b] == ' ', b += 1){}
+    if(mode == '>'){///기본 : 오른쪽 정렬
+        return(v);
+    }
+    elif(mode == '<'){///띄어쓰기 뒤로 빼기
+        temp = f"";
+        strcpy(_temp, _v + b);
+        v.string[b] = 0;
+        strcat(_temp, _v);
+        return(temp);
+    }
+    elif(mode == '^'){///띄어쓰기 뒤로 빼기
+        temp = f"";
+        strcpy(_temp, _v + b - b/2);
+        v.string[b - b/2] = 0;
+        strcat(_temp, _v);
+        return(temp);
+    }
+    elif(mode == '='){///띄어쓰기 뒤로 빼기
+        if(v.string[b] == '+' || v.string[b] == '-'){
+            v.string[0] = v.string[b];
+            v.string[b] = ' ';
+        }
+        return(v);
+    }
+}
+
+///Part 1 : Functions of Strings and Input, Output of the string.
+$class(str16){
+	#string:byte[16];
+}
+
+$class(str32, !str16){
+	#string:byte[32];
+}
+
+$class(str64, !str32){
+	#string:byte[64];
+}
+
+$class(str128, !str64){
+	#string:byte[128];
+}
+
+$class(str, !str128){
+	#string:byte[256];
+}
+
+str(st:str128):str{
+    ret = str;
+    strcpy(_ret, _st);
+    return(ret);
+}
+
+str(st:str64):str{
+    ret = str;
+    strcpy(_ret, _st);
+    return(ret);
+}
+
+str(st:str32):str{
+    ret = str;
+    strcpy(_ret, _st);
+    return(ret);
+}
+
+str(st:str16):str{
+    ret = str;
+    strcpy(_ret, _st);
+    return(ret);
+}
+
+
+
+
+
+///String Operators
+$add(st1:ref, st2:ref) : str{
+	#s(0):str;
+	s = str(st1) + str(st2);
+	return(s);
+}
+
+$add(st1:str, st2:ref) : str{
+	#s(0):str;
+	s = st1 + str(st2);
+	return(s);
+}
+
+$add(st1:str, st2:str) : str{
+	#s(0):str;
+	strcpy(_s, _st1);
+	strcat(_s, _st2);
+	return(s);
+}
+
+$add(st1:ref, st2:str) : str{
+	#s(0):str;
+	s = str(st1) + st2;
+	return(s);
+}
+
+
+$sub(st1:str, st2:str) : str{
+    result = st1;
+    len1 = strlen(_st1);
+    len2 = strlen(_st2);
+    dlen = len1 - len2;
+    if(dlen < 0){
+        return(result);
+    }
+    for(i:0:dlen){
+        if(!strncmp(_st1 + i, _st2, len2)){
+            strcpy(_result + i, _st1 + i + len2);
+        }
+    }
+    return(result);
+}
+
+$le(st1:str, st2:str) : str{
+    result = st1;
+    len1 = strlen(_st1);
+    len2 = strlen(_st2);
+    dlen = len1 - len2;
+    if(dlen < 0){
+        return(result);
+    }
+    for(i:0:dlen){
+        if(!strncmp(_st1 + i, _st2, len2)){
+            st1.string[i + len2] = 0;
+            result = st1;
+        }
+    }
+    return(result);
+}
+
+$lt(st1:str, st2:str) : str{
+    result = st1;
+    len1 = strlen(_st1);
+    len2 = strlen(_st2);
+    dlen = len1 - len2;
+    if(dlen < 0){
+        return(result);
+    }
+    for(i:0:dlen){
+        if(!strncmp(_st1 + i, _st2, len2)){
+            st1.string[i] = 0;
+            result = st1;
+        }
+    }
+    return(result);
+}
+
+$be(st1:str, st2:str) : str{
+    result = st1;
+    len1 = strlen(_st1);
+    len2 = strlen(_st2);
+    dlen = len1 - len2;
+    if(dlen < 0){
+        return(result);
+    }
+    for(i:0:dlen){
+        if(!strncmp(_st1 + i, _st2, len2)){
+            strcpy(_result, _st1 + i);
+        }
+    }
+    return(result);
+}
+
+$bt(st1:str, st2:str) : str{
+    result = st1;
+    len1 = strlen(_st1);
+    len2 = strlen(_st2);
+    dlen = len1 - len2;
+    if(dlen < 0){
+        return(result);
+    }
+    for(i:0:dlen){
+        if(!strncmp(_st1 + i, _st2, len2)){
+            strcpy(_result, _st1 + i + len2);
+        }
+    }
+    return(result);
+}
+
+$eq(st1:str, st2:str) : int{
+    return(!strcmp(_st1, _st2));
+}
+
+$ne(st1:str, st2:str) : int{
+    return(strcmp(_st1, _st2));
+}
+
+$star(st1:str) : int{
+    return(strlen(_st1));
+}
+
+
+
+///String Format Functions
+$const($mod$ref$int, 0x00033011, ref, str);
+$const($mod$ref$float, 0x00035011, ref, str);
+$const($mod$ref$double, 0x00036011, ref, str);
+$const($mod$ref$int64, 0x00034011, ref, str);
+$const($mod$ref$ref, 0x00033011, ref, str);
+
+$mod(st:ref, v:str):str{
+    return(st % _v);
+}
+
+$mod(st:str, v:int):str{
+    return(_st % v);
+}
+
+$mod(st:str, v:float):str{
+    return(_st % v);
+}
+
+$mod(st:str, v:double):str{
+    return(_st % v);
+}
+
+$mod(st:str, v:int64):str{
+    return(_st % v);
+}
+
+$mod(st:str, v:ref):str{
+    return(_st % v);
+}
+
+$mod(st:str, v:str):str{
+    return(_st % _v);
+}
+
+
+atoi(st:str):int{
+    return(atoi(_st));
+}
+
+atof(st:str):float{
+    return(atof(_st));
+}
+
+xtoi(st:str):int{
+    return(xtoi(_st));
+}
+
+
+

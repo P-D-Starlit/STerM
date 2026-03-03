@@ -1,0 +1,159 @@
+<?xml version="1.0" ?>
+
+<!--                                        -->
+<!-- Default settings file for Scriptum 6.0 -->
+<!-- (C) HDL Works B.V. - 2005              -->
+<!--                                        -->
+
+<CONFIGURATION>
+
+<sections>
+    <section name="MainWindow" >
+        <key name="Geometry" type="geometry" value="0,0,800,600" />
+        <key name="Maximized" type="bool" value="false" />
+    </section>
+    <section name="Gui" >
+        <key name="MdiBackgroundColor" type="color" value="Gray80" />
+        <key name="MdiActiveColor" type="color" value="Cyan" />
+        <key name="MdiInactiveColor" type="color" value="Gray50" />
+        <key name="MdiWindowColor" type="color" value="Gray75" />
+        <key name="MdiWindowsLookAndFeel" type="bool" value="yes" />
+        <key name="MdiBorderSize" type="int" value="6" />
+    </section>
+    <section name="HdlOptions" >
+        <key name="LogicalLibrary" type="string" value="work" />
+        <key name="PhysicalLibrary" type="string" value="work" />
+        <key name="Vhdl93" type="bool" value="yes" />
+    </section>
+    <section name="Folding" >
+        <key name="Enabled" type="bool" value="yes" />
+        <key name="SaveAndRestore" type="bool" value="yes" />
+        <key name="Level" type="int" value="10" />
+        <key name="Greedy" type="bool" value="yes" />
+    </section>
+    <section name="Options" >
+        <key name="AutoReload" type="bool" value="no" />
+        <key name="EolMode" value="0" type="int"/>
+        <key name="Extensions" type="string" value="" />
+        <key name="FirstChildMaximized" type="bool" value="no" />
+        <key name="FileEncoding" type="string" value="Automatic" />
+        <key name="FontUnix" type="string" value="Courier" />
+        <key name="FontWindows" type="string" value="Courier New" />
+        <key name="FontSizeUnix" type="int" value="11" />
+        <key name="FontSizeWindows" type="int" value="11" />
+        <key name="Colors" type="bool" value="yes" />
+        <key name="AutoIndent" type="bool" value="yes" />
+        <key name="LineNumbers" type="bool" value="yes" />
+        <key name="KeepUndoRedo" type="bool" value="no" />
+        <key name="SaveOnExit" type="bool" value="yes" />
+        <key name="TabBarPosition" type="string" value="Bottom" />
+        <key name="TabDirectoryLen" type="int" value="2" />
+        <key name="BackupFile" type="bool" value="no" />
+        <key name="ButtonsLeft" type="bool" value="yes" />
+        <key name="WindowOrder" type="bool" value="yes" />
+        <key name="RemoveSpacesEol" type="bool" value="no" />
+        <key name="ShowWhiteSpace" type="bool" value="no" />
+        <key name="TabSize" type="int" value="4" />
+        <key name="TypeAssistant" type="bool" value="yes" />
+        <key name="TypeAssistantLen" type="int" value="3" />
+        <key name="TypeAssistantMatch" type="bool" value="no" />
+        <key name="TypeAssistantItems" type="int" value="15" />
+        <key name="UseSpaces" type="bool" value="no" />
+    </section>
+    <section name="LanguageList" >
+        <key name="Default" type="file" value="$INSTALL/scriptum/lsf/default.xml" />
+        <key name="Actel PDC" type="file" value="$INSTALL/scriptum/lsf/pdc.xml" />
+        <key name="AHDL" type="file" value="$INSTALL/scriptum/lsf/ahdl.xml" />
+        <key name="Altera QSF" type="file" value="$INSTALL/scriptum/lsf/qsf.xml" />
+        <key name="C" type="file" value="$INSTALL/scriptum/lsf/c.xml" />
+        <key name="EDIF" type="file" value="$INSTALL/scriptum/lsf/edif.xml" />
+        <key name="EightLines" type="file" value="$INSTALL/scriptum/lsf/eli.xml" />
+        <key name="Diamond LPF" type="file" value="$INSTALL/scriptum/lsf/lpf.xml" />
+        <key name="GUE" type="file" value="$INSTALL/scriptum/lsf/gue.xml" />
+        <key name="Java" type="file" value="$INSTALL/scriptum/lsf/java.xml" />
+        <key name="M4" type="file" value="$INSTALL/scriptum/lsf/m4.xml" />
+        <key name="Perl" type="file" value="$INSTALL/scriptum/lsf/perl.xml" />
+        <key name="PSL" type="file" value="$INSTALL/scriptum/lsf/psl.xml" />
+        <key name="RISC-V ASM SIMUL" type="file" value="$INSTALL/scriptum/lsf/ras.xml" />
+        <key name="Skill" type="file" value="$INSTALL/scriptum/lsf/skill.xml" />
+        <key name="Starlight" type="file" value="$INSTALL/scriptum/lsf/sr.xml" />
+        <key name="Starlit3" type="file" value="$INSTALL/scriptum/lsf/sr3.xml" />
+        <key name="STerm" type="file" value="$INSTALL/scriptum/lsf/stm.xml" />
+        <key name="SystemC" type="file" value="$INSTALL/scriptum/lsf/systemc.xml" />
+        <key name="SystemVerilog" type="file"
+                    value="$INSTALL/scriptum/lsf/systemverilog.xml" />
+        <key name="Tcl" type="file" value="$INSTALL/scriptum/lsf/tcl.xml" />
+        <key name="TXT" type="file" value="$INSTALL/scriptum/lsf/txt.xml" />
+        <key name="Verilog" type="file" value="$INSTALL/scriptum/lsf/verilog.xml" />
+        <key name="VHDL" type="file" value="$INSTALL/scriptum/lsf/vhdl.xml" />
+        <key name="Xilinx UCF" type="file" value="$INSTALL/scriptum/lsf/ucf.xml" />
+        <key name="Xilinx XDC" type="file" value="$INSTALL/scriptum/lsf/xdc.xml" />
+        <key name="XML" type="file" value="$INSTALL/scriptum/lsf/xml.xml" />
+    </section>
+    <section name="MostRecentFiles" >
+        <key name="1" type="file" value="$INSTALL/scriptum/examples/example.v" />
+        <key name="2" type="file" value="$INSTALL/scriptum/examples/example.vhd" />
+        <key name="3" type="file" />
+        <key name="4" type="file" />
+        <key name="5" type="file" />
+        <key name="6" type="file" />
+        <key name="7" type="file" />
+        <key name="8" type="file" />
+        <key name="9" type="file" />
+    </section>
+    <section name="MostRecentFilesData" >
+    </section>
+    <section name="MostRecentSearches" >
+        <key name="1" type="string" />
+        <key name="2" type="string" />
+        <key name="3" type="string" />
+        <key name="4" type="string" />
+        <key name="5" type="string" />
+    </section>
+    <section name="SidebarUrls" />
+    <section name="Environment" >
+        <key name="LicenseFile" type="file" value="" />
+        <key name="CurrentVersion" type="string" value="" />
+    </section>
+    <section name="Print" >
+        <key name="AutoRotate" type="bool" value="true" />
+        <key name="DestinationPrinter" type="bool" value="true" />
+        <key name="FileName" />
+        <key name="DriverType" type="string" value="PostScript" />
+        <!-- Orientation: 0 = portrait, 1 = landscape, 2 = bestfit -->
+        <key name="Orientation" type="int" value="2" min="0" max="2" />
+        <key name="PrinterName" type="string" value="" />
+
+        <key name="FileInHeader" type="bool" value="yes" />
+        <key name="DateInHeader" type="bool" value="yes" />
+        <key name="LineNumbers" type="bool" value="yes" />
+        <key name="WrapLines" type="bool" value="yes" />
+        <key name="Syntax" type="bool" value="yes" />
+        <key name="BlackWhite" type="bool" value="false" />
+        <key name="MarginLeft" type="string" value="10" />
+        <key name="MarginRight" type="string" value="10" />
+        <key name="MarginTop" type="string" value="10" />
+        <key name="MarginBottom" type="string" value="10" />
+        <key name="FontSize" type="int" value="10" />
+        <key name="PageSize" type="string" value="A4" />
+        <key name="SpoolScript" type="string" value="lpr  -P$P $$" />
+    </section>
+    <section name="Templates" >
+        <key name="IndentLevel" type="int" value="2" />
+        <key name="KeywordStyle" type="int" value="1" />
+    </section>
+
+    <section name = "ToolTips">
+      <key name = "TimedToolTips" type = "bool" value = "true" />
+    </section>
+
+    <section name="HelpFiles" >
+        <key name="UserManualPdf" type="file"
+            value="$INSTALL/scriptum/doc/manual.pdf"/>
+        <key name="UserManualChm" type="file"
+            value="$INSTALL/scriptum/doc/manual.chm"/>
+    </section>
+</sections>
+
+</CONFIGURATION>
+

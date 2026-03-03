@@ -1,0 +1,194 @@
+/**
+
+**************Starlight 3.0**************
+*										*
+*	Math								*
+*										*
+*	math.shc							*
+*										*
+*	2023. 04. 01						*
+*	Maded Bi P. J. Kim					*
+*										*
+*										*
+*	Starlight,							*
+*	Virtual Machine in					*
+*	Embedded System						*
+*										*
+*	**Starlight OOP Center**			*
+*										*
+*****************************************
+
+**/
+
+$const(PI, 3.1415926535897932L, double);
+$const(EXP, 2.718281828459045L, double);
+
+
+$const(exp$float, 0x00060010, ref, float);
+$const(log$float, 0x00061010, ref, float);
+$const(log10$float, 0x00062010, ref, float);
+$const(sqrt$float, 0x00063010, ref, float);
+$const(sin$float, 0x00070010, ref, float);
+$const(cos$float, 0x00071010, ref, float);
+$const(tan$float, 0x00072010, ref, float);
+$const(asin$float, 0x00073010, ref, float);
+$const(acos$float, 0x00074010, ref, float);
+$const(atan$float, 0x00075010, ref, float);
+$const(rad$float, 0x0007A010, ref, float);
+$const(deg$float, 0x0007B010, ref, float);
+
+
+$const(abs$int, 0x00080010, ref, int);
+$const(abs$int64, 0x00081010, ref, int64);
+$const(abs$float, 0x00082010, ref, float);
+
+$const(pow$float$float, 0x0101C010, ref, float);
+$const(hypot$float$float, 0x0101D010, ref, float);
+$const(atan2$float$float, 0x0101E010, ref, float);
+
+$const(finite$float, 0x02010010, ref, int);
+$const(isinf$float, 0x02011010, ref, int);
+$const(isnan$float, 0x02012010, ref, int);
+
+$const(tanh$float, 0x02020010, ref, float);
+$const(frexp$float$ref, 0x02021010, ref, float);
+$const(modf$float$ref, 0x02022010, ref, float);
+$const(ceil$float, 0x02023010, ref, float);
+$const(fabs$float, 0x02024010, ref, float);
+$const(floor$float, 0x02025010, ref, float);
+$const(cosh$float, 0x02030010, ref, float);
+$const(sinh$float, 0x02031010, ref, float);
+$const(ldexp$float$int, 0x02032010, ref, float);
+$const(fmod$float, 0x02033010, ref, float);
+
+
+$const(exp2$float, 0x02040010, ref, float);
+$const(scalbln$float$int, 0x02041010, ref, float);
+$const(tgamma$float, 0x02042010, ref, float);
+$const(nearbyint$float, 0x02043010, ref, float);
+$const(lrint$float, 0x02044010, ref, int);
+$const(llrint$float, 0x02045010, ref, int64);
+$const(round$float, 0x02046010, ref, float);
+$const(lround$float, 0x02047010, ref, int);
+$const(llround$float, 0x02048010, ref, int64);
+$const(trunc$float, 0x02049010, ref, float);
+$const(remquo$float$float$ref, 0x0204A010, ref, float);
+$const(fdim$float$float, 0x0204B010, ref, float);
+$const(fmax$float$float, 0x0204C010, ref, float);
+$const(fmin$float$float, 0x0204D010, ref, float);
+$const(fma$float$float$float, 0x0204E010, ref, float);
+                   
+
+$const(infinity_f, 0x02050010, ref, float);
+$const(nan_f$ref, 0x02051010, ref, float);
+$const(copysign$float$float, 0x02052010, ref, float);
+$const(logb$float, 0x02053010, ref, float);
+$const(ilogb$float, 0x02054010, ref, float);
+
+
+$const(asinh$float, 0x02060010, ref, float);
+$const(cbrt$float, 0x02061010, ref, float);
+$const(nextafter$float$float, 0x02062010, ref, float);
+$const(rint$float, 0x02063010, ref, float);
+$const(scalbn$float$int, 0x02064010, ref, float);
+$const(log1p$float, 0x02065010, ref, float);
+$const(expm1$float, 0x02066010, ref, float);
+
+$const(acosh$float, 0x02070010, ref, float);
+$const(atanh$float, 0x02071010, ref, float);
+$const(remainder$float$float, 0x02072010, ref, float);
+$const(gamma$float, 0x02073010, ref, float);
+$const(lgamma$float, 0x02074010, ref, float);
+$const(erf$float, 0x02075010, ref, float);
+$const(erfc$float, 0x02076010, ref, float);
+$const(log2$float, 0x02077010, ref, float);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$const(exp$double,          0x00064010, ref, double);
+$const(log$double,          0x00065010, ref, double);
+$const(log10$double,        0x00066010, ref, double);
+$const(sqrt$double,         0x00067010, ref, double);
+$const(sin$double,          0x00076010, ref, double);
+$const(cos$double,          0x00077010, ref, double);
+$const(tan$double,          0x00078010, ref, double);
+$const(asin$double,         0x00079010, ref, double);
+$const(acos$double,         0x0007C010, ref, double);
+$const(atan$double,         0x0007D010, ref, double);
+$const(rad$double,          0x0007A010, ref, double);
+$const(deg$double,          0x0007B010, ref, double);
+
+$const(abs$double,          0x00083010, ref, double);
+
+$const(pow$double$double,   0x0300C010, ref, double);
+$const(hypot$double$double, 0x0300D010, ref, double);
+$const(atan2$double$double, 0x0101F010, ref, double);
+
+$const(finite$double,       0x03010010, ref, int);
+$const(isinf$double,        0x03011010, ref, int);
+$const(isnan$double,        0x03012010, ref, int);
+
+$const(tanh$double,         0x03020010, ref, double);
+$const(frexp$double$ref,    0x03021010, ref, double);
+$const(modf$double$ref,     0x03022010, ref, double);
+$const(ceil$double,         0x03023010, ref, double);
+$const(fabs$double,         0x03024010, ref, double);
+$const(floor$double,        0x03025010, ref, double);
+$const(cosh$double,         0x03030010, ref, double);
+$const(sinh$double,         0x03031010, ref, double);
+$const(ldexp$double$int,    0x03032010, ref, double);
+$const(fmod$double,         0x03033010, ref, double);
+
+
+$const(exp2$double,         0x03040010, ref, float);
+$const(scalbln$double$int,  0x03041010, ref, float);
+$const(tgamma$double,       0x03042010, ref, float);
+$const(nearbyint$double,    0x03043010, ref, float);
+$const(lrint$double,        0x03044010, ref, int);
+$const(llrint$double,       0x03045010, ref, int64);
+$const(round$double,        0x03046010, ref, float);
+$const(lround$double,       0x03047010, ref, int);
+$const(llround$double,      0x03048010, ref, int64);
+$const(trunc$double,        0x03049010, ref, float);
+$const(fdim$double$double,  0x0304B010, ref, float);
+$const(fmax$double$double,  0x0304C010, ref, float);
+$const(fmin$double$double,  0x0304D010, ref, float);
+
+$const(remquo$double$double$ref, 0x0304A010, ref, float);
+$const(fma$double$double$double, 0x0304E010, ref, float);
+                   
+
+$const(infinity,                0x03050010, ref, double);
+$const(nan$ref,                 0x03051010, ref, double);
+$const(copysign$double$double,  0x03052010, ref, double);
+$const(logb$double,             0x03053010, ref, double);
+$const(ilogb$double,            0x03054010, ref, double);
+
+
+$const(asinh$double,            0x03060010, ref, double);
+$const(cbrt$double,             0x03061010, ref, double);
+$const(nextafter$double$double, 0x03062010, ref, double);
+$const(rint$double,             0x03063010, ref, double);
+$const(scalbn$double$int,       0x03064010, ref, double);
+$const(log1p$double,            0x03065010, ref, double);
+$const(expm1$double,            0x03066010, ref, double);
+
+$const(acosh$double,            0x03070010, ref, double);
+$const(atanh$double,            0x03071010, ref, double);
+$const(remainder$double$double, 0x03072010, ref, double);
+$const(gamma$double,            0x03073010, ref, double);
+$const(lgamma$double,           0x03074010, ref, double);
+$const(erf$double,              0x03075010, ref, double);
+$const(erfc$double,             0x03076010, ref, double);
+$const(log2$double,             0x03077010, ref, double);
