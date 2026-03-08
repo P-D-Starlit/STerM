@@ -135,6 +135,15 @@ FILE_Open(fname:ref, md:ref, ln:ref):file_t{
     return(result);
 }
 
+FILE_Setup(fname:ref, md:ref, ln:ref):file_t{
+    result = file_t;
+    result.fname = fname;
+    result.md = md;
+    result.fp = NULL;
+    result.ln = ln;
+    return(result);
+}
+
 
 $class(file_t){
     #fname:ref;
@@ -148,20 +157,41 @@ $class(file_t){
         self.fp = fopen(fname, md);
         self.ln = ln;
     }
+    Open(){
+        self.fp = fopen(fname, md);
+    }
+    IsOpened():int{
+        res = (val(self.fp) != 0);
+        return(res);
+    }
     
     
     Close(){
         fclose(self.fp);
-        self.fname = NULL;
-        self.md = NULL;
         self.fp = NULL;
     }
     
     Print(st:str){
-        fputs(st, self.fp);
+        if(self.IsOpened()){
+            fputs(st, self.fp);
+        }
+        else{
+            self.fp = fopen(self.fname, self.md);
+            fputs(st, self.fp);
+            fclose(self.fp);
+            self.fp = NULL;
+        }
     }
     Print(st:ref){
-        fputs(st, self.fp);
+        if(self.IsOpened()){
+            fputs(st, self.fp);
+        }
+        else{
+            self.fp = fopen(self.fname, self.md);
+            fputs(st, self.fp);
+            fclose(self.fp);
+            self.fp = NULL;
+        }
     }
     
     Write(ch:int){

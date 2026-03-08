@@ -10,6 +10,20 @@ $const(SER_Available$int,       0x70312012, ref, int);
 $const(SER_Read$int,            0x70313012, ref, int);
 $const(SER_Flush$int,           0x70314012, ref     );
 
+$const(SER_Read$int$ref$int,        0x70320012, ref, int);
+$const(SER_Peek$int,                0x70321012, ref, int);
+$const(SER_Peek$int$ref$int,        0x70322012, ref, int);
+$const(SER_Flush1$int,              0x70323012, ref     );
+$const(SER_Match$int$ref$int$ref,   0x70324012, ref, int);
+$const(SER_Scan$int$ref,            0x70325012, ref, int);
+$const(strnoln$ref,                 0x70326012, ref, int);
+
+
+
+
+
+
+
 
 SER_CHARR = int[64];
 SER_Setup(cnt:int, name:_str){
@@ -63,18 +77,37 @@ $class(com_t){
         res = SER_Read(self.idx);
         return(res);
     }
+    Read(st:_str):int{
+        res = SER_Read(self.idx, st_, 255);
+        st.string[res] = 0;
+        return(res);
+    }
+    Peek():int{
+        res = SER_Peek(self.idx);
+        return(res);
+    }
+    Peek(st:_str):int{
+        res = SER_Peek(self.idx, st_, 255);
+        st.string[res] = 0;
+        return(res);
+    }
     Write(ch:int){
         SER_Write(self.idx, ch);
     }
     Flush(){
         SER_Flush(self.idx);
+        while(SER_Available(self.idx)){
+            SER_Read(self.idx);
+        }
+    }
+    FlushBuf(){
+        SER_Flush1(self.idx);
     }
     Wait(tim:int){
         cnt = 0;
+        t = Tick();
         while(!self.Available()){
-            Delay(1);
-            cnt = cnt + 1;
-            if(cnt > tim){
+            if(Tick() - t > tim){
                 break;
             }
         }
@@ -83,7 +116,20 @@ $class(com_t){
         self.Wait(self.timeout);
     }
     
-    Scan():str{
+    Scan(st:_str):int{
+        return(SER_Scan(self.idx, st_));
+    }
+    
+    Scan1(st:_str):int{
+        res = SER_Scan(self.idx, st_);
+        if(res > 0){
+            res = strnoln(st_);
+        }
+        return(res);
+    }
+    
+    
+    Scan2():str{
         st = str;
         idx = 0;
         for(idx = 0, idx < 255, idx+=1){
@@ -111,6 +157,17 @@ $class(com_t){
         SER_Write(self.idx, ch & 0x1F);
     }
     
+    /// 대량 매칭은 str 배열 선언 후 사용. str 1개당 256B 사용.
+    Match(rst:ref, sz:int, st:_str):int{
+        res = SER_Match(self.idx, rst, sz, st_);
+        return(res);
+    }
+    
+    /// 대량 매칭은 str 배열 선언 후 사용. str 1개당 256B 사용.
+    Match(rst:str, sz:int, st:_str):int{
+        res = SER_Match(self.idx, _rst, sz, st_);
+        return(res);
+    }
     
 }
 
@@ -135,12 +192,12 @@ $shr(st:ref, com:_com_t):_com_t{
 
 ///Scan
 $shr(com:_com_t, st:_str):_com_t{
-    st = com.Scan();
+    st = com.Scan1();
     return(com_);
 }
 
 $shl(st:_str, com:_com_t):_com_t{
-    st = com.Scan();
+    st = com.Scan1();
     return(com_);
 }
 

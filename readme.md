@@ -43,20 +43,53 @@
   # TTY Program for STerM.
   # Open Source TTY Code Example.
   # Written in Starlit 5.1 Pythonic Style.
-  
+
   COMPORT = ["COM7"]                   # Please change to exact COM Port.
-  
+
   main:
       COM[0].Open()                    # Default : 115200baud, no parity, 8bit, 1bit stop
+      st = str
       while 1:
           if *COM[0]:
-              re = COM[0].Read()
-              CONSOLE << f"{re:c}"
+              re = COM[0].Read(st)
+              Print1 st
           if kbhit():
               key = getch()
               COM[0] << f"{key:c}"
-  
   ```
+
+- 상/하/좌/우 키가 필요한 경우(PuTTY, TeraTerm 호환 코드)
+  - 실무에서는 PuTTY, Teraterm에 맞춰서 디버깅할 수 있게 구현된 경우가 많으므로 필요에 따라 형태를 변형해서 전송해야 하는 경우도 있다. 이 부분은 kbhit()쪽을 수정하면 된다. 아래는 Windows에서 PuTTY 구현하는 예제이다.
+    ```Py
+    # TTY Program for STerM.
+    # Open Source TTY Code Example.
+    # Written in Starlit 5.1 Pythonic Style.
+
+    COMPORT = ["COM11"]                   # Please change to exact COM Port.
+
+    main:
+        COM[0].Open()                    # Default : 115200baud, no parity, 8bit, 1bit stop
+        st = str
+        while 1:
+            if *COM[0]:
+                re = COM[0].Read(st)
+                Print1 st
+            if kbhit():
+                key = getch()
+                if key == 224:
+                    key = getch()
+                    when key:
+                        case 72:
+                            COM[0] << f"{0x1B:c}[A"
+                        case 80:
+                            COM[0] << f"{0x1B:c}[B"
+                        case 77:
+                            COM[0] << f"{0x1B:c}[C"
+                        case 75:
+                            COM[0] << f"{0x1B:c}[D"
+                else:
+                    COM[0] << f"{key:c}"
+    ```
 
 - 전체 로그를 파일에 저장하는 TTY 예제
 
@@ -70,21 +103,36 @@
   
   main:
       COM[0].Open()                    # Default : 115200baud, no parity, 8bit, 1bit stop
-      logFile = file_t
+      st = str
+      logFile = FILE_Setup("log.txt", "ab", "\r\n")
       while 1:
           if *COM[0]:
-              re = COM[0].Read()
-              CONSOLE << f"{re:c}"
-
-              logFile.Open("log.txt", "at", "\n") # File Saving Code
-              logFile << f"{re:c}"
-              logFile.Close()
+              re = COM[0].Read(st)
+              Print1 st
+              logFile << st
           if kbhit():
               key = getch()
               COM[0] << f"{key:c}"
   
   ```
 
+## InstantTTY 사용 시 꿀팁
 
+- InstantTTY란, 앞의 예제의 TTY 코드를 기반으로 즉시 실행 가능하게 만든 TTY 실행 파일입니다. 엄연한 STerM 실행 바이너리 파일로 파일 형식은 `.stb`를 사용하지만, 기존 TTY와 다르게 초기 설정 없이 COM포트만 맞추면 즉시 사용할 수 있게 만든 TTY입니다.
+  - InstantTTY에 없는 포트의 경우 당황하지 말고 예제 소스를 긁어서 컴파일 하면 InstantTTY를 생성할 수 있습니다.
+  - 기본 사양은 115200baud, 8bit, no parity, 1 stop bit로, 상황에 맞게 사양을 변경할 수 있습니다.
+- STerM InstantTTY도 엄연한 TTY다보니 PuTTY에서 지원되는 기능은 대부분 지원된다. 대표적으로 Shift + Insert를 눌러서 클립보드 내용을 넣을 수 있다.
+- PuTTY, Tera Term과 다르게 드래그 상태에서 복제가 되지 않는다. Windows CMD 기반으로 설계된 탓에 Windows CMD의 복제 방식을 따라 Ctrl + C를 눌러야 복제가 된다.
+- Ctrl+C를 InstantTTY를 실행하던 중 꺼져버리는 문제가 생겨 현재 꺼지지 않게만 조치했고, 추후 TTY상에서 실행 중지 구현 예정이다.(1.2버전)
+- STerM InstantTTY는 STerM을 PuTTY나 Tera Term처럼 쓸 수 있게 만든 TTY이며, 본래 목적과 약간 차이가 있습니다. STerM 자체는 TTY를 위한 것이 아닌 자동화를 구현하여 실험을 설계하기 위한 Tool로, TTY는 이 Tool의 부가 기능일 뿐입니다.
+
+## 버전 정보
+
+### 1.0 STerM Release
+
+### 1.1 STerM 버퍼 이슈 개선 및 함수 추가
+
+- Buffer 이슈 개선 : Buffer 인덱싱 및 크기 변경(확대)
+- 함수 추가 : Scan 및 관련 함수 최적화, 파일 입출력 함수 간소화 등.
 
 

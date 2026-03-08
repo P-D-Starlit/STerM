@@ -153,8 +153,9 @@
         while 1:
             if *COM[0]:
                 re = str
-                re << COM[0]
-                CONSOLE << f"{_re}"
+                sc = COM[0].Scan(re)
+                if sc > 0:
+                    CONSOLE << f"{_re}"
     ```
 
 ### 시리얼 포트에 들어온 문자열 가공하기
@@ -169,10 +170,11 @@
       while 1:
           if *COM[0]:
               re = str
-              re << COM[0]
-              re = re - "VALUE = "
-              v = atoi(re) % 1000
-              CONSOLE << f"/0VAL = {v:03d}"
+              sc = COM[0].Scan(re)
+              if sc > 0:
+                  re = re - "VALUE = "
+                  v = atoi(re) % 1000
+                  CONSOLE << f"/0VAL = {v:03d}"
 
   ```
 

@@ -10,8 +10,11 @@ $const(GetArgBytes$ref, 0x00008011, ref, int);
 /// 001 Timing Functions
 ///    Name         Address         REF     Output Type
 $const(Tick,        0x00100011,     ref,    int	        );
-$const(Delay$int,   0x00101011,     ref                 );
-
+$const(Sleep$int,   0x00101011,     ref                 );
+Delay(tim:int){
+    t = Tick();
+    while(Tick() - t < tim){}
+}
 
 
 /// 002 SVM Memory Management Functions

@@ -1,7 +1,7 @@
 
 
 GLOBAL_Init__(){
-    COMPORT=["COM7","COM4"];
+    COMPORT=["COM7"];
 }
 
 

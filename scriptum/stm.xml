@@ -116,9 +116,7 @@
         <key name = "strunilen" />
         <key name = "UTF8_Val" />
         <key name = "UTF8_String" />
-        <key name = "xtoi" />
-        <key name = "xtol" />
-        <key name = "xtoll" />
+        <key name = "strtol" />
         <key name = "split" />
         <key name = "vsprintf" />
         <key name = "vsprintf1" />
@@ -141,6 +139,7 @@
         <key name = "GetArgBytes" />
         <key name = "Tick" />
         <key name = "Delay" />
+        <key name = "Sleep" />
         <!-- Console Instances -->
         <key name = "getch" />
         <key name = "kbhit" />
@@ -154,6 +153,8 @@
         <key name = "fputs" />
         <key name = "fputc" />
         <key name = "fgetc" />
+        <key name = "FILE_Open" />
+        <key name = "FILE_Setup" />
         <key name = "SER_Setup" />
         <key name = "SER_Print" />
         <key name = "SER_Setup1" />
@@ -170,6 +171,9 @@
         <key name = "Clear" />
         <key name = "Print" />
         <key name = "Scan" />
+        <key name = "Scan1" />
+        <key name = "Scan2" />
+        <key name = "Match" />
         <key name = "Available" />
         <key name = "Flush" />
         <key name = "Peek" />
@@ -177,6 +181,7 @@
         <key name = "WriteCtrl" />
         <key name = "Read" />
         <key name = "Open" />
+        <key name = "IsOpened" />
         <key name = "Close" />
         <key name = "SetBaud" />
         <key name = "SetNewLine" />

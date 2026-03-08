@@ -1,0 +1,19 @@
+# TTY Program for STerM.
+# Open Source TTY Code Example.
+# File Saving Mode
+# Written in Starlit 5.1 Pythonic Style.
+
+COMPORT = ["COM7"]                   # Please change to exact COM Port.
+
+main:
+    COM[0].Open()                    # Default : 115200baud, no parity, 8bit, 1bit stop
+    st = str
+    logFile = FILE_Setup("log.txt", "ab", "\r\n")
+    while 1:
+        if *COM[0]:
+            re = COM[0].Read(st)
+            Print1 st
+            logFile << st
+        if kbhit():
+            key = getch()
+            COM[0] << f"{key:c}"
