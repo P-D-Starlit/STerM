@@ -22,6 +22,7 @@ $const(rand,                    0x01060011,     ref,    int             );
 $const(realloc$ref$int,         0x01061011,     ref,    ref             );
 
 $const(srand$int,               0x01070011,     ref                     );
+$const(strtol$ref$ref$int,      0x01070011,     ref,    int             );
 
 $const(itoa$int$ref$int         0x010B2011,     ref,    ref             );
 $const(utoa$int$ref$int         0x010B3011,     ref,    ref             );
