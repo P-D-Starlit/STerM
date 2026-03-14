@@ -246,6 +246,16 @@ $align(mode:int, v:str):str{
     }
 }
 
+$addstr(st:VA_LIST):str{
+    n = GetArgBytes(_st) / sizeof(str);
+    result = str(_st);
+    i = 0;
+    for(i=1, i < n, i+=1){
+        result += str(_st + sizeof(str) * i);
+    }
+    return(result);
+}
+
 ///Part 1 : Functions of Strings and Input, Output of the string.
 $class(str16){
 	#string:byte[16];
