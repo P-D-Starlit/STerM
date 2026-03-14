@@ -2,7 +2,7 @@
 # Open Source TTY Code Example.
 # Written in Starlit 5.1 Pythonic Style.
 
-COMPORT = ["COM11"]                   # Please change to exact COM Port.
+COMPORT = ["COM12"]                   # Please change to exact COM Port.
 
 main:
     COM[0].Open()                    # Default : 115200baud, no parity, 8bit, 1bit stop

@@ -3,7 +3,7 @@
 # File Saving Mode
 # Written in Starlit 5.1 Pythonic Style.
 
-COMPORT = ["COM7"]                   # Please change to exact COM Port.
+COMPORT = ["COM3"]                   # Please change to exact COM Port.
 
 main:
     COM[0].Open()                    # Default : 115200baud, no parity, 8bit, 1bit stop
