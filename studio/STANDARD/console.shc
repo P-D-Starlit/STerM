@@ -122,7 +122,7 @@ fputs(st:str, fp:ref){
 }
 
 $const(fputc$int$ref, 0x70213012, ref);
-$const(fgetc$int$ref, 0x70214012, ref);
+$const(fgetc$ref,     0x70214012, ref);
 $const(fseek$ref$int, 0x70215012, ref);
 $const(ftell$ref,     0x70216012, ref, int);
 
@@ -209,15 +209,16 @@ $class(file_t){
             re = self.Read();
             if(re != -1){
                 st.string[idx] = re;
-                if(st.string[idx] == '\n'){
+                if(st.string[idx] == 0x0a){
                     idx = idx+1;
                     st.string[idx] = 0;
                     break;
                 }
-                idx = idx+1;
+                ///idx = idx+1;
             }
             else{
                 st.string[idx] = 0;
+                self.Close();
                 break;
             }
         }
