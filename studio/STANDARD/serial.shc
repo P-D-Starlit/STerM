@@ -19,6 +19,10 @@ $const(SER_Scan$int$ref,            0x70325012, ref, int);
 $const(strnoln$ref,                 0x70326012, ref, int);
 
 
+$const(SER_NextLine$int,            0x70330012, ref, int);
+$const(SER_StartIdx$int,            0x70331012, ref, int);
+$const(SER_SetStart$int$int,        0x70332012, ref);
+$const(SER_MatchStr$int$int$ref$int,0x70333012, ref, int);
 
 
 
@@ -169,6 +173,26 @@ $class(com_t){
         return(res);
     }
     
+    Compare(rst:str, sz:int):int{
+        res = SER_MatchStr(self.idx, 0, _rst, sz);
+        return(res);
+    }
+    Compare(rst:str, st:int, sz:int):int{
+        res = SER_MatchStr(self.idx, st, _rst, sz);
+        return(res);
+    }
+    NextLine():int{
+        res = SER_NextLine(self.idx);
+        return(res);
+    }
+    GetIndex():int{
+        res = SER_StartIdx(self.idx);
+        return(res);
+    }
+    SetIndex(val:int){
+        SER_SetStart(self.idx, val);
+    }
+    
 }
 
 COM = com_t[64];
@@ -192,12 +216,16 @@ $shr(st:ref, com:_com_t):_com_t{
 
 ///Scan
 $shr(com:_com_t, st:_str):_com_t{
-    st = com.Scan1();
+    re = com.Scan1(st);
+    if re <= 0:
+        st.string[0] = 0
     return(com_);
 }
 
 $shl(st:_str, com:_com_t):_com_t{
-    st = com.Scan1();
+    re = com.Scan1(st);
+    if re <= 0:
+        st.string[0] = 0
     return(com_);
 }
 
