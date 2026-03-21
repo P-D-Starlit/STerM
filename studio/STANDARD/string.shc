@@ -21,7 +21,7 @@ $const(strerror$int,            0x02016011,     ref,    ref             );
 $const(strlen$ref,              0x02017011,     ref,    int             );
 $const(strncat$ref$ref$int,     0x02018011,     ref,    ref             );
 $const(strncmp$ref$ref$int,     0x02019011,     ref,    int             );
-$const(strncpy$ref$ref$int,     0x0201A011,     ref,    ref             );
+$const(strncpy_u$ref$ref$int,     0x0201A011,     ref,    ref             );
 $const(strpbrk$ref$ref,         0x0201B011,     ref,    ref             );
 $const(strrchr$ref$int,         0x0201C011,     ref,    ref             );
 $const(strspn$ref$ref,          0x0201D011,     ref,    int             );
@@ -75,6 +75,36 @@ $const(split$ref$int$ref,       0x00520012,     ref,    int             );
 $const(split$ref$ref$ref$ref,   0x00521012,     ref,    int             );
 $const(vsprintf$ref$ref$ref,    0x00522012,     ref,    ref             );
 $const(vsprintf1$ref$ref$ref,   0x00523012,     ref,    ref             );
+
+
+///   (Name                     Address         REF     Output Type     );
+$const(strcmpmsk$ref$ref$int,   0x00580012,     ref,    int             );
+$const(strcmp$ref$ref$int,      0x00581012,     ref,    int             );
+$const(strncmp$ref$ref$int$int, 0x00582012,     ref,    int             );
+$const(sstrcmp$ref$ref,         0x00583012,     ref,    int             );
+$const(sstrcmp$ref$ref$int,     0x00584012,     ref,    int             );
+
+$const(strncpy$ref$ref$int,     0x00590012,     ref,    ref             );
+$const(strncpy$ref$ref$int$int, 0x00591012,     ref,    ref             );
+
+$const(atoi$ref$int$int,        0x005A0012,     ref,    int             );
+$const(atoll$ref$int$int,       0x005A1012,     ref,    int64           );
+$const(atoff$ref$int$int,       0x005A2012,     ref,    float           );
+$const(atof$ref$int$int,        0x005A3012,     ref,    double          );
+
+$const(strtol$ref$int$int$int,  0x005A4012,     ref,    int             );
+$const(strtoll$ref$int$int$int, 0x005A5012,     ref,    int64           );
+
+$const(atoic$ref$int$int,       0x005A6012,     ref,    int             );
+$const(atollc$ref$int$int,      0x005A7012,     ref,    int64           );
+$const(atoffc$ref$int$int,      0x005A8012,     ref,    float           );
+$const(atofc$ref$int$int,       0x005A9012,     ref,    double          );
+
+$const(strtolc$ref$int$int$int, 0x005AA012,     ref,    int             );
+$const(strtollc$ref$int$int$int,0x005AB012,     ref,    int64           );
+
+
+
 sprintf(st:ref, format:ref, va:VA_LIST):ref{
     res = vsprintf(st, format, _va);
     return(res);
