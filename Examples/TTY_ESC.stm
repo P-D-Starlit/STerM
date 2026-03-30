@@ -1,0 +1,47 @@
+# TTY Program for STerM.
+# Open Source TTY Code Example.
+# Written in Starlit 5.1 Pythonic Style.
+
+COMPORT = ["COM7"]                   # Please change to exact COM Port.
+
+main:
+    COM[0].Open()                    # Default : 115200baud, no parity, 8bit, 1bit stop
+    st = str
+    while 1:
+        if *COM[0]:
+            re = COM[0].Read(st)
+            Print1 st
+        if kbhit():
+            key = getch()
+            if key == 224:
+                key = getch()
+                when key:
+                    case 72:
+                        COM[0] << f"{0x1B:c}[A"
+                    case 80:
+                        COM[0] << f"{0x1B:c}[B"
+                    case 77:
+                        COM[0] << f"{0x1B:c}[C"
+                    case 75:
+                        COM[0] << f"{0x1B:c}[D"
+            elif key == 0x1B:
+                ESC_Menu()
+            elif key == 0x08:
+                COM[0] << f"{127:c}"
+            else:
+                COM[0] << f"{key:c}"
+
+ESC_Menu():
+    CONSOLE << CONSOLE.ln << "/m--------------------MENU---------------------" << CONSOLE.ln
+    # Write Menu List
+    CONSOLE << "/r1. /wPrint Hello World to Console." << CONSOLE.ln
+    key = getch()
+    when key:
+        # Write Control Algorithm.
+        case '1':
+            CONSOLE << "Hello, World!" << CONSOLE.ln
+    CONSOLE << CONSOLE.ln << "/m---------------------------------------------" << CONSOLE.ln
+
+
+
+            
