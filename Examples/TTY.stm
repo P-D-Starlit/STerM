@@ -2,7 +2,7 @@
 # Open Source TTY Code Example.
 # Written in Starlit 5.1 Pythonic Style.
 
-COMPORT = ["COM12"]                   # Please change to exact COM Port.
+COMPORT = ["COM13"]                   # Please change to exact COM Port.
 
 main:
     COM[0].Open()                    # Default : 115200baud, no parity, 8bit, 1bit stop
@@ -24,6 +24,8 @@ main:
                         COM[0] << f"{0x1B:c}[C"
                     case 75:
                         COM[0] << f"{0x1B:c}[D"
+            elif key == 0x08:
+                COM[0] << f"{127:c}"
             else:
                 COM[0] << f"{key:c}"
             

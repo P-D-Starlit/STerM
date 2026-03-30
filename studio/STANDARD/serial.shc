@@ -53,14 +53,19 @@ $class(com_t){
         res = SER_Connect(self.idx, self.baud);
         return(res);
     }
+    Open(brate:int):int{
+        self.baud = brate;
+        res = SER_Connect(self.idx, self.baud);
+        return(res);
+    }
     Open(brate:int, ln:ref):int{
-        self.baud = brate();
+        self.baud = brate;
         self.ln = ln;
         res = SER_Connect(self.idx, self.baud);
         return(res);
     }
     Close():int{
-        res = SER_Connect(self.idx, self.baud);
+        res = SER_Disconnect(self.idx, self.baud);
         return(res);
     }
     SetBaud(brate:int){

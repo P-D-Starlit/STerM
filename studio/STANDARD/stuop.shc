@@ -196,6 +196,14 @@ $const($sub$float$float,	0x01042010,		ref,	float	);
 $const($sub$double$double,	0x01043010,		ref,	double	);
 $const($sub$ref$ref,        0x01040010,     ref,    int     );
 
+$inc(a:_int, be:int, af:int):int{
+    a += be;
+    a += af;
+    return(a-af);
+}
+
+
+
 ///Shift
 $const($shl$int$int,		0x01050010,		ref,	int		);
 $const($shl$int64$int64,	0x01051010,		ref,	int64	);
@@ -237,123 +245,77 @@ $const($be$uint$uint,		0x01106010,		ref,	int		);
 $const($be$uint64$uint64,	0x01107010,		ref,	int		);
 $const($be$float$float,		0x010D2010,		ref,	int		);
 $const($be$double$double,	0x010D9010,		ref,	int		);
-
-$ltlt(x1:int, x2:int, x3:int):int{
-    return(x1 < x2 && x2 < x3);
-}
-$lelt(x1:int, x2:int, x3:int):int{
-    return(x1 <= x2 && x2 < x3);
-}
-$lele(x1:int, x2:int, x3:int):int{
-    return(x1 <= x2 && x2 <= x3);
-}
-$ltle(x1:int, x2:int, x3:int):int{
-    return(x1 < x2 && x2 <= x3);
-}
-
-$btbt(x1:int, x2:int, x3:int):int{
-    return(x1 > x2 && x2 > x3);
-}
-$bebt(x1:int, x2:int, x3:int):int{
-    return(x1 >= x2 && x2 > x3);
-}
-$bebe(x1:int, x2:int, x3:int):int{
-    return(x1 >= x2 && x2 >= x3);
-}
-$btbe(x1:int, x2:int, x3:int):int{
-    return(x1 > x2 && x2 >= x3);
+$const(GetArgBytes$ref, 0x00008011, ref, int);
+$cmp(x1:int, va:VA_LIST):int{
+    opcode = _int; 
+    opcode_ = _va;
+    cnt = GetArgBytes(_va) >> 3;
+    state = 1;
+    
+    for(i:0:(cnt-1)){
+        if(opcode[i*2] == 0){state = (x1[i*2] == x1[i*2 + 2]);}
+        elif(opcode[i*2] == 1){state = (x1[i*2] != x1[i*2 + 2]);}
+        elif(opcode[i*2] == 2){state = (x1[i*2] >= x1[i*2 + 2]);}
+        elif(opcode[i*2] == 3){state = (x1[i*2] > x1[i*2 + 2]);}
+        elif(opcode[i*2] == 4){state = (x1[i*2] <= x1[i*2 + 2]);}
+        elif(opcode[i*2] == 5){state = (x1[i*2] < x1[i*2 + 2]);}
+        if(state == 0){return(0);}
+    }
+    return(1);
 }
 
-$ltlt(x1:float, x2:float, x3:float):int{
-    return(x1 < x2 && x2 < x3);
-}
-$lelt(x1:float, x2:float, x3:float):int{
-    return(x1 <= x2 && x2 < x3);
-}
-$lele(x1:float, x2:float, x3:float):int{
-    return(x1 <= x2 && x2 <= x3);
-}
-$ltle(x1:float, x2:float, x3:float):int{
-    return(x1 < x2 && x2 <= x3);
-}
-
-$btbt(x1:float, x2:float, x3:float):int{
-    return(x1 > x2 && x2 > x3);
-}
-$bebt(x1:float, x2:float, x3:float):int{
-    return(x1 >= x2 && x2 > x3);
-}
-$bebe(x1:float, x2:float, x3:float):int{
-    return(x1 >= x2 && x2 >= x3);
-}
-$btbe(x1:float, x2:float, x3:float):int{
-    return(x1 > x2 && x2 >= x3);
+$cmp(x1:int64, va:VA_LIST):int{
+    opcode = _int; 
+    opcode_ = _va;
+    cnt = GetArgBytes(_va) >> 3;
+    state = 1;
+    
+    for(i:0:(cnt-1)){
+        if(opcode[i*2] == 0){state = (x1[i*2] == x1[i*2 + 2]);}
+        elif(opcode[i*2] == 1){state = (x1[i*2] != x1[i*2 + 2]);}
+        elif(opcode[i*2] == 2){state = (x1[i*2] >= x1[i*2 + 2]);}
+        elif(opcode[i*2] == 3){state = (x1[i*2] > x1[i*2 + 2]);}
+        elif(opcode[i*2] == 4){state = (x1[i*2] <= x1[i*2 + 2]);}
+        elif(opcode[i*2] == 5){state = (x1[i*2] < x1[i*2 + 2]);}
+        if(state == 0){return(0);}
+    }
+    return(1);
 }
 
-$btbt(x1:double, x2:double, x3:double):int{
-    return(x1 > x2 && x2 > x3);
-}
-$bebt(x1:double, x2:double, x3:double):int{
-    return(x1 >= x2 && x2 > x3);
-}
-$bebe(x1:double, x2:double, x3:double):int{
-    return(x1 >= x2 && x2 >= x3);
-}
-$btbe(x1:double, x2:double, x3:double):int{
-    return(x1 > x2 && x2 >= x3);
-}
-
-
-
-$ltltlt(x1:int, x2:int, x3:int, x4:int):int{
-    return(x1 < x2 && x2 < x3 && x3 < x4);
-}
-$ltltle(x1:int, x2:int, x3:int, x4:int):int{
-    return(x1 < x2 && x2 < x3 && x3 <= x4);
-}
-$ltlele(x1:int, x2:int, x3:int, x4:int):int{
-    return(x1 < x2 && x2 <= x3 && x3 <= x4);
-}
-$ltlelt(x1:int, x2:int, x3:int, x4:int):int{
-    return(x1 < x2 && x2 <= x3 && x3 < x4);
-}
-$lelelt(x1:int, x2:int, x3:int, x4:int):int{
-    return(x1 <= x2 && x2 <= x3 && x3 < x4);
-}
-$lelele(x1:int, x2:int, x3:int, x4:int):int{
-    return(x1 <= x2 && x2 <= x3 && x3 <= x4);
-}
-$leltle(x1:int, x2:int, x3:int, x4:int):int{
-    return(x1 <= x2 && x2 < x3 && x3 <= x4);
-}
-$leltlt(x1:int, x2:int, x3:int, x4:int):int{
-    return(x1 <= x2 && x2 < x3 && x3 < x4);
+$cmp(x1:float, va:VA_LIST):int{
+    opcode = _int; 
+    opcode_ = _va;
+    cnt = GetArgBytes(_va) >> 3;
+    state = 1;
+    for(i:0:(cnt-1)){
+        if(opcode[i*2] == 0){state = (x1[i*2] == x1[i*2 + 2]);}
+        elif(opcode[i*2] == 1){state = (x1[i*2] != x1[i*2 + 2]);}
+        elif(opcode[i*2] == 2){state = (x1[i*2] >= x1[i*2 + 2]);}
+        elif(opcode[i*2] == 3){state = (x1[i*2] > x1[i*2 + 2]);}
+        elif(opcode[i*2] == 4){state = (x1[i*2] <= x1[i*2 + 2]);}
+        elif(opcode[i*2] == 5){state = (x1[i*2] < x1[i*2 + 2]);}
+        if(state == 0){return(0);}
+    }
+    return(1);
 }
 
-$btbtbt(x1:int, x2:int, x3:int, x4:int):int{
-    return(x1 > x2 && x2 > x3 && x3 > x4);
+$cmp(x1:double, va:VA_LIST):int{
+    opcode = _int; 
+    opcode_ = _va;
+    cnt = GetArgBytes(_va) >> 3;
+    state = 1;
+    for(i:0:(cnt-1)){
+        if(opcode[i*2] == 0){state = (x1[i*2] == x1[i*2 + 2]);}
+        elif(opcode[i*2] == 1){state = (x1[i*2] != x1[i*2 + 2]);}
+        elif(opcode[i*2] == 2){state = (x1[i*2] >= x1[i*2 + 2]);}
+        elif(opcode[i*2] == 3){state = (x1[i*2] > x1[i*2 + 2]);}
+        elif(opcode[i*2] == 4){state = (x1[i*2] <= x1[i*2 + 2]);}
+        elif(opcode[i*2] == 5){state = (x1[i*2] < x1[i*2 + 2]);}
+        if(state == 0){return(0);}
+    }
+    return(1);
 }
-$btbtbe(x1:int, x2:int, x3:int, x4:int):int{
-    return(x1 > x2 && x2 > x3 && x3 >= x4);
-}
-$btbebe(x1:int, x2:int, x3:int, x4:int):int{
-    return(x1 > x2 && x2 >= x3 && x3 >= x4);
-}
-$btbebt(x1:int, x2:int, x3:int, x4:int):int{
-    return(x1 > x2 && x2 >= x3 && x3 > x4);
-}
-$bebebt(x1:int, x2:int, x3:int, x4:int):int{
-    return(x1 >= x2 && x2 >= x3 && x3 > x4);
-}
-$bebebe(x1:int, x2:int, x3:int, x4:int):int{
-    return(x1 >= x2 && x2 >= x3 && x3 >= x4);
-}
-$bebtbe(x1:int, x2:int, x3:int, x4:int):int{
-    return(x1 >= x2 && x2 > x3 && x3 >= x4);
-}
-$bebtbt(x1:int, x2:int, x3:int, x4:int):int{
-    return(x1 >= x2 && x2 > x3 && x3 > x4);
-}
+
 
 
 
@@ -373,18 +335,7 @@ $const($ne$uint64$uint64,	0x010B4010,		ref,	int	);
 $const($ne$float$float,		0x010B5010,		ref,	int	);
 $const($ne$double$double,	0x010B8010,		ref,	int	);
 
-$eqeq(x1:int, x2:int, x3:int):int{
-    return(x1 == x2 && x2 == x3);
-}
-$eqne(x1:int, x2:int, x3:int):int{
-    return(x1 == x2 && x2 != x3);
-}
-$nene(x1:int, x2:int, x3:int):int{
-    return(x1 != x2 && x2 != x3);
-}
-$neeq(x1:int, x2:int, x3:int):int{
-    return(x1 != x2 && x2 == x3);
-}
+
 
 
 
