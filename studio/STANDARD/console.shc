@@ -122,7 +122,7 @@ fputs(st:str, fp:ref){
 }
 
 $const(fputc$int$ref, 0x70213012, ref);
-$const(fgetc$ref,     0x70214012, ref);
+$const(fgetc$ref,     0x70214012, ref, int);
 $const(fseek$ref$int, 0x70215012, ref);
 $const(ftell$ref,     0x70216012, ref, int);
 
@@ -202,8 +202,7 @@ $class(file_t){
         return(fgetc(self.fp));
     }
     
-    Scan():str{
-        st = str;
+    Scan(st:_str):int{
         idx = 0;
         for(idx = 0, idx < 255, idx+=1){
             re = self.Read();
@@ -223,7 +222,7 @@ $class(file_t){
             }
         }
         st.string[idx] = 0;
-        return(st);
+        return(idx);
     }
     
     Seek(pos:int){
