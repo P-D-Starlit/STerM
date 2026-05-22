@@ -1,0 +1,58 @@
+COMPORT = ["COM7"] # COM포트 정의
+
+main:
+    COM[0].Open() # COM7을 연다, 기본속도 115200baud.
+
+    # MCU 초기화 및 LED 활성화
+    COM[0] << "******" << COM[0].ln
+    Delay 100
+
+    COM[0] << "LED ON" << COM[0].ln
+    Delay 100
+
+    r = int
+    g = int
+    b = int
+
+    while 1:
+        # 빨강 -> 노랑 (초록 증가)
+        for g:0:5:255:
+            COM[0] << f"LED 3 255" << COM[0].ln
+            COM[0] << f"LED 5 {g}" << COM[0].ln
+            COM[0] << f"LED 6 0" << COM[0].ln
+            Delay 20
+
+        # 노랑 -> 초록 (빨강 감소)
+        for r:255:-5:0:
+            COM[0] << f"LED 3 {r}" << COM[0].ln
+            COM[0] << f"LED 5 255" << COM[0].ln
+            COM[0] << f"LED 6 0" << COM[0].ln
+            Delay 20
+
+        # 초록 -> 청록 (파랑 증가)
+        for b:0:5:255:
+            COM[0] << f"LED 3 0" << COM[0].ln
+            COM[0] << f"LED 5 255" << COM[0].ln
+            COM[0] << f"LED 6 {b}" << COM[0].ln
+            Delay 20
+
+        # 청록 -> 파랑 (초록 감소)
+        for g:255:-5:0:
+            COM[0] << f"LED 3 0" << COM[0].ln
+            COM[0] << f"LED 5 {g}" << COM[0].ln
+            COM[0] << f"LED 6 255" << COM[0].ln
+            Delay 20
+
+        # 파랑 -> 자홍 (빨강 증가)
+        for r:0:5:255:
+            COM[0] << f"LED 3 {r}" << COM[0].ln
+            COM[0] << f"LED 5 0" << COM[0].ln
+            COM[0] << f"LED 6 255" << COM[0].ln
+            Delay 20
+
+        # 자홍 -> 빨강 (파랑 감소)
+        for b:255:-5:0:
+            COM[0] << f"LED 3 255" << COM[0].ln
+            COM[0] << f"LED 5 0" << COM[0].ln
+            COM[0] << f"LED 6 {b}" << COM[0].ln
+            Delay 20

@@ -1,0 +1,17 @@
+/// Time Library for STerM & Starlit(H743)
+
+
+///    Name                     Address         REF     Output Type
+$const(clock,                   0x06000011,     ref,    int             );
+$const(difftime$int64$int64,    0x06001011,     ref,    double          );
+$const(mktime$int64,            0x06002011,     ref,    int64           );
+$const(time$ref,                0x06003011,     ref,    int64           );
+
+
+$const(asctime$ref,             0x06004011,     ref,    ref             );
+$const(ctime$ref,               0x06005011,     ref,    ref             );
+$const(gtime$ref,               0x06006011,     ref,    ref             );
+$const(localtime$ref,           0x06007011,     ref,    ref             );
+
+
+$const(strftime$ref$int$ref$ref,0x06010011,     ref,    int             );

@@ -2,6 +2,7 @@ $import(console);
 $import(serial);
 $import(studio);
 $import(math);
+$import(time);
 ///$import(serial); 해당 기능은 PC에서 미지원.
 ///OLED = OLED_Black();
 ///PuTTY = PuTTY_Serial(115200); 해당 기능은 PC에서 미지원.
