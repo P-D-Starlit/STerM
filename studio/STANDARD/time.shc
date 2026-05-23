@@ -1,6 +1,9 @@
 /// Time Library for STerM & Starlit(H743)
 
 
+
+
+
 ///    Name                     Address         REF     Output Type
 $const(clock,                   0x06000011,     ref,    int             );
 $const(difftime$int64$int64,    0x06001011,     ref,    double          );
@@ -10,8 +13,28 @@ $const(time$ref,                0x06003011,     ref,    int64           );
 
 $const(asctime$ref,             0x06004011,     ref,    ref             );
 $const(ctime$ref,               0x06005011,     ref,    ref             );
-$const(gtime$ref,               0x06006011,     ref,    ref             );
-$const(localtime$ref,           0x06007011,     ref,    ref             );
+$const(gtime1$ref,               0x06006011,     ref,    ref             );
+$const(localtime1$ref,           0x06007011,     ref,    ref             );
 
+$class(tm){
+    #tm_sec:int;
+    #tm_min:int;
+    #tm_hour:int;
+    #tm_mday:int;
+    #tm_mon:int;
+    #tm_year:int;
+    #tm_wday:int;
+    #tm_yday:int;
+    #tm_isdst:int;
+}
+
+gtime(timer:ref):tm{
+    res = tm(gtime1(timer));
+    return(res);
+}
+localtime(timer:ref):tm{
+    res = tm(localtime1(timer));
+    return(res);
+}
 
 $const(strftime$ref$int$ref$ref,0x06010011,     ref,    int             );
