@@ -23,6 +23,7 @@ $const(SER_NextLine$int,            0x70330012, ref, int);
 $const(SER_StartIdx$int,            0x70331012, ref, int);
 $const(SER_SetStart$int$int,        0x70332012, ref);
 $const(SER_MatchStr$int$int$ref$int,0x70333012, ref, int);
+$const(SER_Log$int$ref,             0x70334012, ref);
 
 
 
@@ -196,6 +197,12 @@ $class(com_t){
     }
     SetIndex(val:int){
         SER_SetStart(self.idx, val);
+    }
+    Log(val:_file_t){
+        SER_Log(self.idx, val.fp);
+    }
+    NoLog(){
+        SER_Log(self.idx, NULL);
     }
     
 }
