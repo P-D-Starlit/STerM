@@ -335,8 +335,23 @@ $const($ne$uint64$uint64,	0x010B4010,		ref,	int	);
 $const($ne$float$float,		0x010B5010,		ref,	int	);
 $const($ne$double$double,	0x010B8010,		ref,	int	);
 
+$eq(a:ref, b:ref):int{
+    return(val(a) == val(b));
+}
 
+$eq2(a:_int, b:_int):int{return(val(a_) == val(b_));}
+$eq2(a:_int64, b:_int64):int{return(val(a_) == val(b_));}
+$eq2(a:_uint, b:_uint):int{return(val(a_) == val(b_));}
+$eq2(a:_uint64, b:_uint64):int{return(val(a_) == val(b_));}
+$eq2(a:_float, b:_float):int{return(val(a_) == val(b_));}
+$eq2(a:_double, b:_double):int{return(val(a_) == val(b_));}
 
+$eq2(a:_int, b:ref):int{return(val(a_) == val(b));}
+$eq2(a:_int64, b:ref):int{return(val(a_) == val(b));}
+$eq2(a:_uint, b:ref):int{return(val(a_) == val(b));}
+$eq2(a:_uint64, b:ref):int{return(val(a_) == val(b));}
+$eq2(a:_float, b:ref):int{return(val(a_) == val(b));}
+$eq2(a:_double, b:ref):int{return(val(a_) == val(b));}
 
 
 
@@ -362,4 +377,9 @@ $const($and$int$int,		0x01080010,		ref,	int		);
 $const($or$int$int,			0x01081010,		ref,	int		);
 $const($and$int64$int64,	0x01082010,		ref,	int64	);
 $const($or$int64$int64,		0x01083010,		ref,	int64	);
+
+$op2(and, &&);
+$op2(or, ||);
+$op1(not, !);
+$op2(is, ===);
 
